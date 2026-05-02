@@ -1,0 +1,219 @@
+Brand Guidelines
+
+Quickly have the branding locked in for the knowledgebase to reference and advise you on.
+
+Y our Canva Document - Brand Guidelines Are Here - Press Me
+
+1  Core Identity
+
+Resonant Studios is a trusted, boutique NDIS-aligned music production studio founded by Antony
+Rako. With 25+ years of professional music production expertise and lived disability experience,
+R esonant Studios delivers personalised music creation sessions for NDIS participants, support
+coordinators, and plan managers. The studio positions itself as a safe, creative home for
+s elf-expression: grounded in accessibility, genuine care, and tangible outcomes.
+
+M ission Statement
+T o provide NDIS participants in Melbourne's west with a safe, accessible, and professionally
+equipped music studio where they can express themselves creatively, build confidence, develop
+skills, and complete meaningful projects -- resulting in a finished song they own and can share
+with the world.
+
+Brand Name & Meaning The name Resonant carries two meanings that reflect Antony's journey.
+R esonance is the physics of sound -- the domain Antony has worked in for 25+ years. Resonant is
+a lso how something lands emotionally: the feeling of a story, an experience, or a person that stays
+with you. Antony's own path through music and disability resonated deeply with him. He built this
+s tudio so that journey could resonate with every participant who walks through the door.
+
+D omain resonantstudios.com.au -- purchased March 2026
+2 Positional Statement
+
+Resonant Studios combines institutional music production credibility with genuine
+d isability-informed practice to deliver something no other provider in Melbourne's west offers: a
+g uaranteed, professionally produced song on Spotify. Unlike mainstream studios that focus on
+a ble-bodied musicians, or clinical music therapy services limited to therapeutic outcomes,
+R esonant Studios provides professional-grade production, NDIS billing literacy, and participant-led
+c reative ownership -- helping NDIS participants in Wyndham achieve tangible creative outcomes
+o utside the constraints of generic community programs.
+
+U SP Melbourne's west's only NDIS-aligned music production studio -- where participants create,
+record, and release their own music.
+
+T arget Audience NDIS participants in Melbourne's western suburbs (Wyndham, Werribee, Point
+C ook, Hoppers Crossing)
+
+K ey Referrers Support coordinators and plan managers in Wyndham, Hobsons Bay, Brimbank, and
+M elton LGAs Against Mainstream studios (inaccessible, no NDIS literacy) and eastern suburb
+c ompetitors (30­40 km away) Unique Advantages Spotify-ready outcome · Lived disability
+e xperience · Local presence
+
+3  Brand Personality
+
+W arm & Inviting Every touchpoint -- the website, emails, sessions -- feels like walking into a space
+d esigned for you. Language is friendly, human, and never clinical or cold.
+
+G enuinely Expert 25+ years of music production experience shows up in the quality of outcomes,
+the professionalism of documentation, and the confidence of the Spotify-ready deliverable.
+
+A uthentic & Lived Antony's lived disability experience is not a marketing claim -- it is the
+foundation of everything. Communications never perform inclusion; they embody it.
+Empowering The brand positions the participant as the creator, not the recipient. Language
+centres their agency: "your song", "your story", "your pace".
+
+L ocally Rooted Resonant Studios is built for Melbourne's west -- a specific community, not a
+generic service. Pride in being local and filling a genuine gap is part of the identity.
+
+T one of Voice -
+
+P articipant-facing (website, sessions, social media) Register: Warm, affirming, informal Guiding
+Principle: Speak directly to the participant's aspirations. "Your song. Your story. Your way." Avoid
+clinical language and institutional tone.
+
+Referrer-facing (support coordinators, plan managers) Register: Professional, structured,
+c ompliant Guiding Principle: Lead with outcomes and process. Use NDIS line items, goal-aligned
+language, and clear documentation references. Make their job easier.
+
+G eneral brand voice Register: Confident without being corporate Guiding Principle: Never use the
+w ords "music therapy", "studio hire", or "music production services" in NDIS-facing copy. Always
+frame around participant goals and outcomes.
+
+4  Visual Style & Logo Direction
+
+1. Logo Concept:
+The Resonant Studios logo concept is currently held in the brand asset library (not yet transferred
+to this knowledge base). The direction below reflects the agreed design intent and meaning.
+
+The logo should use sound and resonance as its core design motif -- symbolising creative
+e xpression, professional production quality, and the emotional impact of music on a person's life.
+The logo must work in both dark and light modes, remaining modern and legible at all scales --
+from website header to social media avatar to physical printed materials.
+
+  LOGO FILES [Logo Concept] -- Pending transfer to project knowledge base. Retrieve from
+
+b rand asset library and add here: primary logo (full colour), logo on dark, logo on light, icon-only
+m ark, and wordmark.
+
+2 . Typography:
+T ypography should reflect the brand's dual character: modern warmth for participant-facing
+m aterials and professional clarity for referrer-facing documentation. Headlines should feel bold
+a nd confident; body text should be clean and highly readable across digital and print formats.
+
+  HEADINGS (H1, H2, H3) [Bold, clean font -- e.g., modern transitional or geometric sans-serif] --
+
+Pending typography decision.
+
+ BODY TEXT [Clear sans-serif for readability across web and print] -- Pending typography
+
+decision.
+
+ TYPOGRAPHY GOAL Hierarchy should communicate professionalism and approachability, with
+
+[specific design instruction -- e.g., generous line spacing, accessible minimum size] -- Pending.
+
+3. Colour Palette: Primary:
+The colour direction was confirmed in the April 2026 brand session: orange/sunset warm tones
+paired with corporate blue. This pairing communicates creative warmth (participant-facing)
+alongside professional trust (referrer-facing) -- a deliberate dual-channel palette. Specific hex
+codes are pending final confirmation.
+Primary Name / Direction: Warm Orange / Sunset Hex Code: [Hex Code TBC] Meaning / Application:
+E nergy, creativity, warmth. Primary CTAs, headings, accent elements.
+Secondary Name / Direction: Corporate Blue / Deep Navy Hex Code: [Hex Code TBC] Meaning /
+Application: Trust, professionalism, stability. Nav bar, backgrounds, structural elements.
+A ccent Name / Direction: Supporting tone TBC Hex Code: [Hex Code TBC] Meaning / Application:
+Supporting accent -- to be confirmed with final palette.
+
+ FINAL HEX CODES Pending final colour confirmation. Update this section with exact hex values
+
+once palette is locked.
+
+4. Design Motifs:
+Sound & resonance imagery Waveforms, frequency rings, or vibration lines -- symbols of the
+creative act of music-making.
+M odern music equipment Keyboard, drum pads, condenser microphone -- arranged minimally. Not
+c haotic; each instrument in its own modular space. Timeless equipment rendered with a modern,
+c lean aesthetic (not stock photography).
+B ento box / modular layout Grid-based composition of content elements -- modern,
+Spotify-influenced. Each module contains a distinct piece of information or imagery.
+Iconography style: Clean, modern line icons -- bridging music production and accessibility. Avoid
+c lip-art or generic disability iconography.
+
+5 Website Guidelines
+
+1. Layout:
+B ento box / modular grid layout -- inspired by Spotify's UI.
+Clear visual hierarchy with a strong hero section, modular content blocks, embedded audio player
+(single play button), instrument imagery, and accessible section headings. Content should feel
+warm and modern -- not clinical, not chaotic.
+Consistent use of the orange/blue palette to create dual-channel clarity: orange for energy and
+C TAs, blue for structure and trust. Generous whitespace between modules.
+
+2. Navigation:
+S imple, top-level menu structure.
+Confirmed pages: - Home - For Participants - For Support Coordinators - How It Works - FAQ -
+Contact / Book
+Primary CTA (always visible): "Book a Free Discovery Call" Secondary
+C TA: "Refer a Participant" (for support coordinators)
+
+3 . Imagery:
+M odern, minimal photography and illustration of music production equipment -- specifically
+k eyboard and drum pads (Antony's actual gear). Avoid generic stock imagery of people high-fiving
+o r laughing in groups. Focus on the equipment and the creative process -- images that say "this is
+where music gets made" without needing explanation.
+Audio element: Single play button embedded in the hero section. Plays a layered demo track that
+b uilds from raw acapella  guitar  drums  full production. This communicates the journey
+a nd the outcome in under 60 seconds.
+Accessibility requirement: All images must have descriptive alt text. All section headings must be
+c orrectly coded as H1/H2/H3 for screen readers. Bento layout confirmed compatible with screen
+reader navigation. WCAG 2.1 AA compliance minimum.
+4. UX Style:
+
+- Mobile-first responsive design. - Warm, welcoming CTAs -- never transactional or pressuring. -
+O S A.I booking calendar and enquiry form integrated seamlessly on every page. - Minimum
+b ooking lead-time rule embedded in calendar (no same-week bookings -- allows studio
+c oordination and setup time). - Designed for trust: clear provider information, NDIS compliance
+s tatements, and accessible FAQ for both participants and referrers.
+
+  CTA BUTTON STYLE & COLOUR [Primary CTA colour -- e.g., Orange with white text / Blue with
+
+w hite text] -- Pending hex code confirmation.
+
+6  Brand Story-Telling
+
+B rand Storytelling
+
+1. Narrative Theme:
+
+R esonant Studios is the place where participants become creators. The brand tells a story of
+p rofessional creative production meeting genuine human understanding -- to help NDIS
+p articipants in Melbourne's west build something real, something lasting, something they own --
+w hen generic community programs aren't enough.
+
+T he overarching theme: "Your song. Your story. On Spotify."
+
+T he Brand Origin Story (Antony's Voice) The name Resonant came from two places. There's the
+p hysics of it -- resonance is what sound does when it finds the right frequency. I've spent 25 years
+w orking with sound, helping it land the right way. And then there's the other kind of resonance --
+w hen something stays with you. When a song, a moment, or an experience means something. My
+o wn journey with music and disability resonated with me deeply. I built this studio so that
+e xperience can resonate with every person who walks through the door. You don't need to have
+e ver touched a microphone. You just need a story. We'll help you make it a song.
+2. Message Pillars:
+
+Pillar 1 -- Local & Accessible
+Melbourne's west has been underserved. Resonant Studios is here -- in the community, not across
+the city. Physical accessibility and sensory-friendly design are built in from day one, not added as
+a n afterthought.
+
+Pillar 2 -- Professional Output Quality
+Every participant finishes with a real, professionally produced song on Spotify. Not a participation
+certificate. Not a recording on a phone. A song. Industry-grade production meets
+disability-informed practice.
+
+Pillar 3 -- Lived Experience & Cultural Competency
+Antony's lived experience with disability is not a line on a resume -- it is the reason this studio
+exists. Participants and referrers can trust that the environment is genuinely safe, genuinely
+adaptive, and genuinely informed.
+
+Pillar 4 -- Participant-Led Customisation
+This is not a course. There is no fixed curriculum. Each participant leads -- Antony produces.
+Sessions adapt to pace, mood, goals, and ability. The journey is theirs.
+

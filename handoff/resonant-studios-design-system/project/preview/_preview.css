@@ -1,0 +1,38 @@
+/* Preview card chrome — sits around each specimen so they look clean in the Design System tab.
+   Cards are ~700px wide; individual height varies. Each card imports this + colors_and_type.css. */
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  font-family: var(--font-body);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.pv {
+  padding: 24px;
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.pv::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url('../assets/paper-grain.svg');
+  background-size: 320px 320px;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+}
+
+.pv > * { position: relative; }
+
+.row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }

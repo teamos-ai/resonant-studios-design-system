@@ -1,0 +1,643 @@
+/* ============================================================
+   Resonant Studios — Design tokens
+   Direction: B · Field Recording (locked 2026-05-02)
+   Layer order:
+     1. Primitives  — raw hue tones, theme-agnostic
+     2. Semantic    — role tokens, theme-aware
+     3. Compat      — legacy aliases mapped to semantic, deprecated
+     4. Components  — primitive React components consume semantic only
+   ============================================================ */
+
+/* ===== Fonts ===== */
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/DMSerifDisplay-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/fonts/DMSerifDisplay-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Regular.ttf')    format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Medium.ttf')     format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-SemiBold.ttf')   format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/Manrope-Bold.ttf')       format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+/* ExtraLight 200, Light 300, ExtraBold 800 — files retained at /public/fonts/ but not loaded; no usage detected. */
+
+/* ============================================================
+   Layer 1 · Primitives (theme-agnostic raw values)
+   Components must NEVER reference these directly. Use semantic.
+   ============================================================ */
+:root {
+  /* Terra — primary hue. Wooden / clay / terracotta. */
+  --terra-50:  #FCEEE5;
+  --terra-100: #F4D8C5;
+  --terra-200: #ECBA9D;
+  --terra-300: #E58F66;   /* dark-mode primary */
+  --terra-400: #D67A4D;
+  --terra-500: #C76F46;   /* light-mode primary */
+  --terra-600: #A95930;
+  --terra-700: #8B4525;
+  --terra-800: #6E351C;
+  --terra-900: #3F1E10;
+
+  /* Forest — secondary hue. Studio plant / oxidised brass. */
+  --forest-100: #DDE8DD;
+  --forest-200: #BFD3C0;
+  --forest-300: #9BB89C;   /* dark-mode secondary */
+  --forest-400: #7C9C7D;
+  --forest-500: #728C73;   /* light-mode secondary */
+  --forest-600: #587058;
+  --forest-700: #3F523F;
+  --forest-800: #2A372A;
+
+  /* Slate — accent + cool neutral. */
+  --slate-100: #DDE0E5;
+  --slate-200: #B7BCC4;
+  --slate-300: #8C95A8;    /* dark-mode accent */
+  --slate-400: #5C6473;
+  --slate-500: #4A4F5C;    /* light-mode accent */
+  --slate-600: #383D49;
+  --slate-700: #22272B;    /* dark elevated */
+  --slate-800: #181C1F;    /* dark bg */
+  --slate-900: #131618;    /* dark sunken */
+
+  /* Linen — warm neutral. Light mode surfaces. */
+  --linen-50:  #FFFFFF;
+  --linen-100: #EDE9DF;    /* light bg */
+  --linen-200: #DDD7C8;    /* light sunken */
+  --linen-300: #C5BFAD;
+  --linen-700: #4A4839;
+  --linen-800: #2D2C24;
+  --linen-900: #1F1E1B;    /* light ink */
+
+  /* Ink RGB triples — for alpha-driven mute layers. */
+  --ink-on-light-rgb: 31, 30, 27;
+  --ink-on-dark-rgb:  230, 232, 234;
+
+  /* Semantic state primitives. */
+  --success-300: #A8CFA1;
+  --success-500: #6F8C6A;
+  --warning-300: #E8C07A;
+  --warning-500: #C48A3A;
+  --error-300:   #E89A88;
+  --error-500:   #9C4A3C;
+
+  /* Type families. Two faces only. */
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono:    'Manrope', system-ui, sans-serif; /* Manrope w/ tabular-nums */
+
+  /* Accessibility-friendly body face — opt-in via [data-readable="dyslexia"]. */
+  --font-body-dyslexia: 'Atkinson Hyperlegible', 'Manrope', system-ui, sans-serif;
+
+  /* Type scale. */
+  --fs-display: clamp(3.2rem, 6vw, 5.5rem);
+  --fs-h1:      clamp(2.4rem, 4vw, 3.5rem);
+  --fs-h2:      clamp(1.9rem, 3vw, 2.6rem);
+  --fs-h3:      1.5rem;
+  --fs-h4:      1.25rem;
+  --fs-lead:    1.25rem;
+  --fs-body:    1rem;
+  --fs-small:   0.875rem;
+  --fs-micro:   0.75rem;
+
+  /* Easy-read body scale (data-readable="easy" overrides). */
+  --fs-body-easy: 1.125rem;
+  --w-prose-easy: 45ch;
+
+  /* Leading + tracking. */
+  --lh-display: 1.05;
+  --lh-heading: 1.15;
+  --lh-body:    1.6;
+  --lh-tight:   1.3;
+  --track-eyebrow: 0.16em;
+  --track-tight:  -0.02em;
+  --track-normal:  0;
+
+  /* Weights. */
+  --w-body: 400;
+  --w-medium: 500;
+  --w-semibold: 600;
+  --w-bold: 700;
+
+  /* Spacing — 8px base. */
+  --s-1:  4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px;
+  --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
+
+  /* Radii.
+     Shape language: rounded squares, not pills.
+     --r-pill is reserved for genuinely circular elements (avatars,
+     switch tracks, status dots). Chips / badges / nav links / buttons
+     use --r-2 (10px) by default. Floating nav uses --r-4 (20px). */
+  --r-1:  6px;
+  --r-2: 10px;
+  --r-3: 14px;
+  --r-4: 20px;
+  --r-5: 28px;
+  --r-pill: 999px;
+  --r-chip: 10px;   /* alias — pill replacement for chips/badges/links */
+
+  /* Motion tokens. */
+  --ease:      cubic-bezier(0.22, 1, 0.36, 1);   /* out-expo — only easing */
+  --dur-fast:  140ms;
+  --dur-mid:   220ms;
+  --dur-slow:  420ms;
+
+  /* Focus ring contract. */
+  --focus-offset: 2px;
+
+  /* Layout widths. */
+  --w-content: 1200px;
+  --w-editorial: 1040px;
+  --w-prose: 680px;
+  --nav-h: 72px;
+
+  /* Touch target floor (Material spec, exceeds Apple 44px). */
+  --tap-target: 48px;
+
+  /* ----------------------------------------------------------------
+     Image-overlay tokens — explicit carve-out from BRIEF §1
+     ("pure #000 forbidden, no hex in components"). These tokens
+     are *only* legitimate where the underlying surface is a real
+     photograph — never on a UI surface. The pure-black scrim reads
+     as flat dim against a photo, and the cream ink avoids tinting
+     white text with brand-colour casts. Gradient stops and shadow
+     blurs may continue to use raw rgba(0,0,0,X) inline as a
+     consequence of the same carve-out (see BRIEF §1 footnote).
+     ---------------------------------------------------------------- */
+  --ink-on-image: #F5EFE4;
+  --scrim-image:  rgba(0, 0, 0, 0.58);
+}
+
+/* ============================================================
+   Layer 2 · Semantic tokens (theme-aware roles)
+   :root defaults to DARK (accessibility-led choice).
+   ============================================================ */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg:          var(--slate-800);
+  --bg-elevated: var(--slate-700);
+  --bg-sunken:   var(--slate-900);
+
+  --ink:        #E6E8EA;
+  --ink-2:      #BCC0C5;
+  --ink-muted:  rgba(var(--ink-on-dark-rgb), 0.70);
+  --ink-soft:   rgba(var(--ink-on-dark-rgb), 0.52);
+  --ink-faint:  rgba(var(--ink-on-dark-rgb), 0.28);
+
+  --rule:        rgba(var(--ink-on-dark-rgb), 0.10);
+  --rule-strong: rgba(var(--ink-on-dark-rgb), 0.22);
+  --rule-faint:  rgba(var(--ink-on-dark-rgb), 0.05);
+
+  --primary:         var(--terra-300);
+  --primary-hover:   #F0A57F;
+  --primary-pressed: var(--terra-500);
+  --primary-ink:     #1A0E08;
+  --primary-wash:    rgba(229, 143, 102, 0.18);
+
+  --secondary:         var(--forest-300);
+  --secondary-hover:   #B6CDB7;
+  --secondary-pressed: var(--forest-400);
+  --secondary-ink:     #0E1A10;
+  --secondary-wash:    rgba(155, 184, 156, 0.18);
+
+  --accent:      var(--slate-300);
+  --accent-wash: rgba(140, 149, 168, 0.18);
+
+  --success: var(--success-300);
+  --success-wash: rgba(168, 207, 161, 0.18);
+  --warning: var(--warning-300);
+  --warning-wash: rgba(232, 192, 122, 0.18);
+  --error:   var(--error-300);
+  --error-wash: rgba(232, 154, 136, 0.18);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 6px -2px rgba(0, 0, 0, 0.40);
+  --shadow-md: 0 1px 2px rgba(0, 0, 0, 0.30), 0 8px 24px -8px rgba(0, 0, 0, 0.50);
+  --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.30), 0 24px 48px -16px rgba(0, 0, 0, 0.60);
+  --inset-highlight-dark:  rgba(255, 255, 255, 0.06);
+  --inset-highlight-light: rgba(255, 255, 255, 0.40);
+  --shadow-inset: inset 0 1px 0 var(--inset-highlight-dark);
+
+  --focus-ring: 2px solid var(--primary);
+}
+
+/* Light mode override — manual via data-theme, or follow OS.
+   Primary/secondary stepped one notch deeper than the natural mid-tone
+   so white-on-button text clears WCAG AA (4.5:1) at body size:
+     terra-600 #A95930 + #FFF = 6.77:1
+     forest-600 #587058 + #FFF = 6.10:1
+   ink-soft alpha raised 0.46 → 0.65 so caption/footnote text clears AA
+   on the linen-100 surface. Hover/pressed shift one step deeper to keep
+   the staircase intact. */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg:          var(--linen-100);
+  --bg-elevated: var(--linen-50);
+  --bg-sunken:   var(--linen-200);
+
+  --ink:        var(--linen-900);
+  --ink-2:      var(--linen-700);
+  --ink-muted:  rgba(var(--ink-on-light-rgb), 0.66);
+  --ink-soft:   rgba(var(--ink-on-light-rgb), 0.65);
+  --ink-faint:  rgba(var(--ink-on-light-rgb), 0.24);
+
+  --rule:        rgba(var(--ink-on-light-rgb), 0.10);
+  --rule-strong: rgba(var(--ink-on-light-rgb), 0.22);
+  --rule-faint:  rgba(var(--ink-on-light-rgb), 0.05);
+
+  --primary:         var(--terra-600);
+  --primary-hover:   var(--terra-700);
+  --primary-pressed: var(--terra-800);
+  --primary-ink:     #FFFFFF;
+  --primary-wash:    rgba(169, 89, 48, 0.14);
+
+  --secondary:         var(--forest-600);
+  --secondary-hover:   var(--forest-700);
+  --secondary-pressed: var(--forest-800);
+  --secondary-ink:     #FFFFFF;
+  --secondary-wash:    rgba(88, 112, 88, 0.14);
+
+  --accent:      var(--slate-500);
+  --accent-wash: rgba(74, 79, 92, 0.10);
+
+  --success: var(--success-500);
+  --success-wash: rgba(111, 140, 106, 0.10);
+  --warning: var(--warning-500);
+  --warning-wash: rgba(196, 138, 58, 0.10);
+  --error:   var(--error-500);
+  --error-wash: rgba(156, 74, 60, 0.10);
+
+  --shadow-xs: 0 1px 2px rgba(31, 30, 27, 0.04);
+  --shadow-sm: 0 1px 2px rgba(31, 30, 27, 0.05), 0 2px 6px -2px rgba(31, 30, 27, 0.10);
+  --shadow-md: 0 1px 2px rgba(31, 30, 27, 0.05), 0 8px 24px -8px rgba(31, 30, 27, 0.10);
+  --shadow-lg: 0 2px 4px rgba(31, 30, 27, 0.05), 0 24px 48px -16px rgba(31, 30, 27, 0.14);
+  --shadow-inset: inset 0 1px 0 var(--inset-highlight-light);
+}
+
+/* Auto-follow OS preference when no manual data-theme is set.
+   Mirrors :root[data-theme="light"] above — primary/secondary use the
+   -600 token (AA-compliant against white) and ink-soft uses 0.65 alpha. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --bg:          var(--linen-100);
+    --bg-elevated: var(--linen-50);
+    --bg-sunken:   var(--linen-200);
+    --ink:        var(--linen-900);
+    --ink-2:      var(--linen-700);
+    --ink-muted:  rgba(var(--ink-on-light-rgb), 0.66);
+    --ink-soft:   rgba(var(--ink-on-light-rgb), 0.65);
+    --ink-faint:  rgba(var(--ink-on-light-rgb), 0.24);
+    --rule:        rgba(var(--ink-on-light-rgb), 0.10);
+    --rule-strong: rgba(var(--ink-on-light-rgb), 0.22);
+    --rule-faint:  rgba(var(--ink-on-light-rgb), 0.05);
+    --primary:         var(--terra-600);
+    --primary-hover:   var(--terra-700);
+    --primary-pressed: var(--terra-800);
+    --primary-ink:     #FFFFFF;
+    --primary-wash:    rgba(169, 89, 48, 0.14);
+    --secondary:         var(--forest-600);
+    --secondary-hover:   var(--forest-700);
+    --secondary-pressed: var(--forest-800);
+    --secondary-ink:     #FFFFFF;
+    --secondary-wash:    rgba(114, 140, 115, 0.14);
+    --accent:      var(--slate-500);
+    --accent-wash: rgba(74, 79, 92, 0.10);
+    --success: var(--success-500);
+    --warning: var(--warning-500);
+    --error:   var(--error-500);
+    --shadow-xs: 0 1px 2px rgba(31, 30, 27, 0.04);
+    --shadow-sm: 0 1px 2px rgba(31, 30, 27, 0.05), 0 2px 6px -2px rgba(31, 30, 27, 0.10);
+    --shadow-md: 0 1px 2px rgba(31, 30, 27, 0.05), 0 8px 24px -8px rgba(31, 30, 27, 0.10);
+    --shadow-lg: 0 2px 4px rgba(31, 30, 27, 0.05), 0 24px 48px -16px rgba(31, 30, 27, 0.14);
+    --shadow-inset: inset 0 1px 0 var(--inset-highlight-light);
+  }
+}
+
+/* Increased contrast — borders thicken, shadows strengthen. */
+@media (prefers-contrast: more) {
+  :root {
+    --rule:        rgba(var(--ink-on-dark-rgb), 0.30);
+    --rule-strong: rgba(var(--ink-on-dark-rgb), 0.50);
+  }
+  :root[data-theme="light"] {
+    --rule:        rgba(var(--ink-on-light-rgb), 0.30);
+    --rule-strong: rgba(var(--ink-on-light-rgb), 0.50);
+  }
+}
+
+/* Smooth scroll + anchor offset to clear the floating pill nav. */
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+
+/* Reduced data — collapse heavy hero / library imagery to solid swatches. */
+@media (prefers-reduced-data: reduce) {
+  .rs-reduced-data-hide { display: none !important; }
+  .rs-reduced-data-fallback { background-image: none !important; background-color: var(--bg-elevated); }
+  img[loading="lazy"] { content-visibility: auto; }
+}
+
+/* Reduced motion — kill all transforms + non-opacity transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  :root {
+    --dur-fast: 0ms;
+    --dur-mid:  0ms;
+    --dur-slow: 0ms;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Layer 3 · Component tokens — reserved. Add only when a 4th identical
+   override appears across components. v1 has none. */
+
+/* ============================================================
+   Base + form normalisation
+   ============================================================ */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  /* Guard against horizontal scrollbars when full-bleed sections use `width: 100vw`
+     (the value can exceed the inner viewport on browsers that overlay scrollbars). */
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--w-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Easy-read mode opt-in. */
+:root[data-readable="easy"] {
+  --fs-body: var(--fs-body-easy);
+  --w-prose: var(--w-prose-easy);
+  --lh-body: 1.7;
+}
+
+/* Dyslexia-friendly font opt-in. */
+:root[data-readable="dyslexia"] body {
+  font-family: var(--font-body-dyslexia);
+}
+
+button, input, select, textarea, optgroup {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+/* ============================================================
+   Theme-aware logo swap
+   Pair an `.rs-logo--on-light` with an `.rs-logo--on-dark` and
+   exactly one is visible at a time, driven by [data-theme] AND
+   prefers-color-scheme — same precedence chain as the colour tokens.
+   ============================================================ */
+.rs-logo--on-light { display: inline-block; }
+.rs-logo--on-dark  { display: none; }
+
+:root[data-theme="dark"] .rs-logo--on-light { display: none; }
+:root[data-theme="dark"] .rs-logo--on-dark  { display: inline-block; }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) .rs-logo--on-light { display: inline-block; }
+  :root:not([data-theme]) .rs-logo--on-dark  { display: none; }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .rs-logo--on-light { display: none; }
+  :root:not([data-theme]) .rs-logo--on-dark  { display: inline-block; }
+}
+:root[data-theme="light"] .rs-logo--on-light { display: inline-block; }
+:root[data-theme="light"] .rs-logo--on-dark  { display: none; }
+
+/* Skip link — visible on focus, hidden otherwise. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 8px;
+  background: var(--primary);
+  color: var(--primary-ink);
+  padding: 12px 16px;
+  border-radius: var(--r-2);
+  font-weight: 600;
+  z-index: 100;
+  transition: top var(--dur-fast) var(--ease);
+}
+.skip-link:focus { top: 8px; }
+
+/* Paper grain — subtle highlight on dark surfaces, paper noise on light. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 30;
+  background-image: url('/assets/paper-grain.svg');
+  background-size: 320px 320px;
+  opacity: 0.04;
+  mix-blend-mode: screen;
+}
+:root[data-theme="light"] body::before,
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) body::before { mix-blend-mode: multiply; opacity: 0.05; }
+}
+
+::selection { background: var(--primary-wash); color: var(--ink); }
+
+/* Always-visible focus ring — never `outline: none`. */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* ============================================================
+   Type primitives (semantic class names — apply directly or
+   use as base for higher-level components)
+   ============================================================ */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+p { margin: 0; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+a:hover { color: var(--primary-hover); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+
+em, .italic { font-style: italic; }
+strong, .bold { font-weight: var(--w-semibold); color: var(--ink); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+.caption { font-size: var(--fs-micro); color: var(--ink-soft); letter-spacing: 0.02em; }
+
+/* ============================================================
+   Component primitives — consume SEMANTIC tokens only.
+   Round 4 will extract these into React components.
+   ============================================================ */
+/* Button — primary CTA now uses --secondary (sage). Terracotta stays as the
+   brand identity colour (eyebrow text, focus ring, links, logo, badges, section
+   numerals). The "tertiary" variant (.btn-sec) takes the previous terracotta
+   look so we still have both colour buttons available. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap-target);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  padding: 12px 20px;
+  border-radius: var(--r-2);
+  border: 1.5px solid transparent;
+  background: var(--secondary);
+  color: var(--secondary-ink);
+  cursor: pointer;
+  transition: background var(--dur-mid) var(--ease),
+              transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur-mid) var(--ease);
+  box-shadow: var(--shadow-xs);
+}
+.btn:hover  { background: var(--secondary-hover); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled, .btn[aria-disabled="true"] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+.btn-secondary:hover { background: rgba(var(--ink-on-dark-rgb), 0.06); }
+:root[data-theme="light"] .btn-secondary:hover { background: rgba(var(--ink-on-light-rgb), 0.06); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--secondary);
+  box-shadow: none;
+  border-color: transparent;
+}
+.btn-ghost:hover { background: var(--secondary-wash); }
+
+/* Tertiary — the previous terracotta filled look. Use for accented secondary
+   actions or brand moments where the primary sage would feel too quiet. */
+.btn-sec {
+  background: var(--primary);
+  color: var(--primary-ink);
+  border-color: transparent;
+  box-shadow: var(--shadow-xs);
+}
+.btn-sec:hover { background: var(--primary-hover); }
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-3);
+  box-shadow: var(--shadow-sm);
+  padding: var(--s-5);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-target);
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--rule-strong);
+  border-radius: var(--r-2);
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink);
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.input::placeholder { color: var(--ink-soft); }
+/* Keep the outline AND the soft halo — outline is what Windows High Contrast Mode renders. */
+.input:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-wash);
+}
+.input[aria-invalid="true"] { border-color: var(--error); }
+.input[aria-invalid="true"]:focus { box-shadow: 0 0 0 3px var(--error-wash); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-chip);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  background: var(--bg-elevated);
+  color: var(--ink-2);
+  border: 1px solid var(--rule);
+}
+.badge.primary    { background: var(--primary-wash);   color: var(--primary);   border-color: transparent; }
+.badge.secondary  { background: var(--secondary-wash); color: var(--secondary); border-color: transparent; }
+.badge.accent     { background: var(--accent-wash);    color: var(--accent);    border-color: transparent; }
+.badge.success    { background: var(--success-wash);   color: var(--success);   border-color: transparent; }
+.badge.warning    { background: var(--warning-wash);   color: var(--warning);   border-color: transparent; }
+.badge.error      { background: var(--error-wash);     color: var(--error);     border-color: transparent; }
+
+hr, .rule { border: 0; border-top: 1px solid var(--rule); margin: var(--s-6) 0; }
+
+/* ============================================================
+   Responsive helpers
+   ============================================================ */
+@media (max-width: 880px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr !important; }
+}
+
+/* Floating nav — at narrow widths, hide the section anchor list so the bar
+   fits. Logo + AccessibilityMenu remain. Section progress is still visible
+   via the active SectionOpener banner as the user scrolls. */
+@media (max-width: 720px) {
+  .rs-floating-nav__links { display: none !important; }
+  .rs-floating-nav { padding-left: 14px !important; }
+}

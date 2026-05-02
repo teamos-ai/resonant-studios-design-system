@@ -1,0 +1,259 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Logomark variations</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .pv { background: var(--paper); padding: 24px; }
+
+  .section-label {
+    font-family: var(--font-body); font-size: 10.5px;
+    letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+    color: var(--ink-soft);
+    margin: 0 0 10px 4px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .tile {
+    aspect-ratio: 1/1;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .tile .mark {
+    width: 62%; height: 62%;
+    background-color: currentColor;
+    -webkit-mask-image: url('../assets/logomark.png');
+    mask-image: url('../assets/logomark.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+  .tile .cap {
+    position: absolute; bottom: 10px; left: 12px; right: 12px;
+    font-family: var(--font-body); font-size: 10.5px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .tile .hex {
+    position: absolute; bottom: 10px; right: 12px;
+    font-family: var(--font-body); font-variant-numeric: tabular-nums;
+    font-size: 10px; letter-spacing: 0.04em;
+  }
+  .tile .role {
+    position: absolute; top: 10px; left: 10px;
+    font-family: var(--font-body); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 4px;
+  }
+  .tile .role.primary   { background: var(--primary);   color: #000; }
+  .tile .role.secondary { background: var(--secondary); color: #000; }
+
+  /* Surfaces */
+  .tile.paper  { background: var(--paper); color: var(--ink); border: 1px solid var(--rule); }
+  .tile.paper .cap { color: var(--ink-muted); }
+  .tile.paper .hex { color: var(--ink-soft); }
+
+  .tile.oat    { background: var(--oat); color: var(--ink); border: 1px solid var(--rule); }
+  .tile.oat .cap { color: var(--ink-muted); }
+  .tile.oat .hex { color: var(--ink-soft); }
+
+  .tile.copper-on-paper { background: var(--paper); color: var(--primary); border: 1px solid var(--rule); }
+  .tile.copper-on-paper .cap, .tile.copper-on-paper .hex { color: var(--ink-muted); }
+
+  .tile.sage-on-paper { background: var(--paper); color: var(--secondary); border: 1px solid var(--rule); }
+  .tile.sage-on-paper .cap, .tile.sage-on-paper .hex { color: var(--ink-muted); }
+
+  .tile.copper-solid { background: var(--primary); color: #000; }
+  .tile.copper-solid .cap, .tile.copper-solid .hex { color: rgba(0,0,0,0.72); }
+
+  .tile.sage-solid { background: var(--secondary); color: #000; }
+  .tile.sage-solid .cap, .tile.sage-solid .hex { color: rgba(0,0,0,0.65); }
+
+  .tile.black { background: #000; color: var(--paper); }
+  .tile.black .cap, .tile.black .hex { color: rgba(251, 247, 238, 0.65); }
+
+  .tile.black-copper { background: #000; color: var(--primary); }
+  .tile.black-copper .cap, .tile.black-copper .hex { color: rgba(251, 247, 238, 0.65); }
+
+  .tile.black-sage { background: #000; color: var(--secondary); }
+  .tile.black-sage .cap, .tile.black-sage .hex { color: rgba(251, 247, 238, 0.65); }
+
+  .tile.espresso { background: var(--ink); color: var(--paper); }
+  .tile.espresso .cap, .tile.espresso .hex { color: rgba(251, 247, 238, 0.6); }
+
+  /* Scale row */
+  .scale-row {
+    display: flex; align-items: flex-end; gap: 28px;
+    padding: 28px 24px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    margin-top: 6px;
+  }
+  .scale-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .scale-item .mark {
+    background-color: var(--ink);
+    -webkit-mask-image: url('../assets/logomark.png');
+    mask-image: url('../assets/logomark.png');
+    -webkit-mask-size: contain; mask-size: contain;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-position: center; mask-position: center;
+  }
+  .scale-item .px {
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    font-size: 10.5px; letter-spacing: 0.1em;
+    color: var(--ink-soft); text-transform: uppercase;
+  }
+
+  /* Clearspace diagram */
+  .clearspace {
+    position: relative;
+    padding: 40px; background: var(--paper);
+    border: 1px solid var(--rule); border-radius: 14px;
+    display: flex; justify-content: center; align-items: center;
+    margin-top: 6px;
+  }
+  .clearspace .glyph {
+    width: 140px; height: 140px;
+    background-color: var(--ink);
+    -webkit-mask-image: url('../assets/logomark.png');
+    mask-image: url('../assets/logomark.png');
+    -webkit-mask-size: contain; mask-size: contain;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-position: center; mask-position: center;
+    position: relative; z-index: 2;
+  }
+  .clearspace .frame {
+    position: absolute;
+    width: 220px; height: 220px;
+    border: 1px dashed var(--primary);
+    border-radius: 4px;
+    z-index: 1;
+  }
+  .clearspace .inner-frame {
+    position: absolute;
+    width: 140px; height: 140px;
+    border: 1px solid rgba(0,0,0,0.25);
+    z-index: 1;
+  }
+  .clearspace .note {
+    position: absolute; top: 16px; left: 20px;
+    font-family: var(--font-body); font-size: 11px;
+    color: var(--ink-muted); letter-spacing: 0.04em;
+  }
+  .clearspace .xmark {
+    position: absolute; top: 16px; right: 20px;
+    font-family: var(--font-body); font-size: 11px;
+    color: var(--primary-soft); letter-spacing: 0.08em; font-weight: 600;
+  }
+</style>
+</head><body><div class="pv">
+
+  <div class="section-label">Primary &middot; ink on paper &amp; paper on black</div>
+  <div class="grid">
+    <div class="tile paper">
+      <span class="mark"></span>
+      <span class="cap">Ink on paper</span>
+      <span class="hex">#231F1A</span>
+    </div>
+    <div class="tile oat">
+      <span class="mark"></span>
+      <span class="cap">Ink on oat</span>
+      <span class="hex">#231F1A</span>
+    </div>
+    <div class="tile black">
+      <span class="mark"></span>
+      <span class="cap">Paper on black</span>
+      <span class="hex">#FBF7EE</span>
+    </div>
+    <div class="tile espresso">
+      <span class="mark"></span>
+      <span class="cap">Paper on espresso</span>
+      <span class="hex">#FBF7EE</span>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 22px;">Primary colour &middot; copper-deep</div>
+  <div class="grid">
+    <div class="tile copper-on-paper">
+      <span class="role primary">Primary</span>
+      <span class="mark"></span>
+      <span class="cap">Copper on paper</span>
+      <span class="hex">#F2B98C</span>
+    </div>
+    <div class="tile copper-solid">
+      <span class="role primary">Primary</span>
+      <span class="mark"></span>
+      <span class="cap">Ink on copper</span>
+      <span class="hex">#F2B98C</span>
+    </div>
+    <div class="tile black-copper">
+      <span class="role primary">Primary</span>
+      <span class="mark"></span>
+      <span class="cap">Copper on black</span>
+      <span class="hex">#F2B98C</span>
+    </div>
+    <div class="tile" style="background: var(--primary); color: var(--paper); border: 1px solid var(--rule);">
+      <span class="role primary">Primary</span>
+      <span class="mark"></span>
+      <span class="cap" style="color: rgba(0,0,0,0.6);">Paper on copper</span>
+      <span class="hex" style="color: rgba(0,0,0,0.55);">#FBF7EE</span>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 22px;">Secondary colour &middot; sage-deep</div>
+  <div class="grid">
+    <div class="tile sage-on-paper">
+      <span class="role secondary">Secondary</span>
+      <span class="mark"></span>
+      <span class="cap">Sage on paper</span>
+      <span class="hex">#CCDDD0</span>
+    </div>
+    <div class="tile sage-solid">
+      <span class="role secondary">Secondary</span>
+      <span class="mark"></span>
+      <span class="cap">Ink on sage</span>
+      <span class="hex">#CCDDD0</span>
+    </div>
+    <div class="tile black-sage">
+      <span class="role secondary">Secondary</span>
+      <span class="mark"></span>
+      <span class="cap">Sage on black</span>
+      <span class="hex">#CCDDD0</span>
+    </div>
+    <div class="tile" style="background: var(--secondary); color: var(--paper); border: 1px solid var(--rule);">
+      <span class="role secondary">Secondary</span>
+      <span class="mark"></span>
+      <span class="cap" style="color: rgba(0,0,0,0.55);">Paper on sage</span>
+      <span class="hex" style="color: rgba(0,0,0,0.5);">#FBF7EE</span>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 22px;">Scale &middot; legibility checkpoints</div>
+  <div class="scale-row">
+    <div class="scale-item"><span class="mark" style="width: 16px; height: 16px;"></span><span class="px">16 &middot; favicon</span></div>
+    <div class="scale-item"><span class="mark" style="width: 24px; height: 24px;"></span><span class="px">24 &middot; inline</span></div>
+    <div class="scale-item"><span class="mark" style="width: 32px; height: 32px;"></span><span class="px">32 &middot; nav</span></div>
+    <div class="scale-item"><span class="mark" style="width: 48px; height: 48px;"></span><span class="px">48 &middot; app icon</span></div>
+    <div class="scale-item"><span class="mark" style="width: 72px; height: 72px;"></span><span class="px">72 &middot; hero</span></div>
+    <div class="scale-item"><span class="mark" style="width: 120px; height: 120px;"></span><span class="px">120 &middot; display</span></div>
+  </div>
+
+  <div class="section-label" style="margin-top: 22px;">Clearspace &middot; x = height of the note stem</div>
+  <div class="clearspace">
+    <span class="note">Clearspace &middot; 0.5&thinsp;&times;&thinsp; mark on every side</span>
+    <span class="xmark">Minimum 16px</span>
+    <div class="frame"></div>
+    <div class="inner-frame"></div>
+    <div class="glyph"></div>
+  </div>
+</div></body></html>

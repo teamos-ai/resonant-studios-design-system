@@ -1,0 +1,147 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Brand accents</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .pv { background: #000; padding: 18px 22px; }
+
+  .fam  { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(251, 247, 238, 0.08); margin-bottom: 10px; }
+  .ramp { display: grid; grid-template-columns: repeat(5, 1fr);    gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(251, 247, 238, 0.08); margin-bottom: 10px; }
+
+  .sw {
+    padding: 18px 14px; min-height: 88px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+  }
+  .sw .n {
+    font-family: var(--font-display);
+    font-size: 15px; font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .sw .h {
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+    font-size: 10px; font-weight: 500; letter-spacing: 0.04em;
+  }
+  .on-dark  { color: #000; }
+  .on-linen { color: var(--paper); }
+
+  .lbl {
+    font-family: var(--font-body);
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(251, 247, 238, 0.55);
+    font-weight: 700; margin-bottom: 8px; margin-top: 16px;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .lbl:first-child { margin-top: 0; }
+
+  .role-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-family: var(--font-body); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .role-tag.primary   { background: var(--primary);   color: #000; }
+  .role-tag.secondary { background: var(--secondary); color: #000; }
+  .role-tag.tertiary  { background: var(--tertiary);  color: #000; }
+
+  /* Primary / secondary highlight ring */
+  .sw.primary-mark   { box-shadow: inset 0 0 0 3px #000, inset 0 0 0 4px var(--paper); }
+  .sw.secondary-mark { box-shadow: inset 0 0 0 3px #000, inset 0 0 0 4px var(--paper); }
+
+  .star {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #000; color: var(--paper);
+    font-size: 9px;
+  }
+
+  .subcaption {
+    font-family: var(--font-body);
+    font-size: 10.5px; color: rgba(0,0,0,0.6);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-top: 6px; font-weight: 600;
+  }
+</style>
+</head><body><div class="pv">
+
+  <div class="lbl">Neutrals &middot; surfaces &amp; ink (black &rarr; white)</div>
+  <div class="ramp">
+    <div class="sw on-linen" style="background: #000000;"><span class="n on-linen">Black</span><span class="h on-linen">#000000</span></div>
+    <div class="sw on-linen" style="background: #1A1A1A;"><span class="n on-linen">Near-black</span><span class="h on-linen">#1A1A1A</span></div>
+    <div class="sw on-linen" style="background: #333333;"><span class="n on-linen">Graphite</span><span class="h on-linen">#333333</span></div>
+    <div class="sw on-dark" style="background: #CCCCCC;"><span class="n on-dark">Mist</span><span class="h on-dark">#CCCCCC</span></div>
+    <div class="sw on-dark" style="background: #FFFFFF;"><span class="n on-dark">White</span><span class="h on-dark">#FFFFFF</span></div>
+  </div>
+
+  <div class="lbl">
+    Copper &middot; <span class="role-tag primary">Primary</span>
+    <span style="color: rgba(251,247,238,0.7); letter-spacing: 0; text-transform: none; font-weight: 500; font-size: 11px;">
+      CTAs, links, active states, session surfaces
+    </span>
+  </div>
+  <div class="fam">
+    <div class="sw" style="background: var(--copper-wash); color: var(--copper);">
+      <span class="n">Wash</span><span class="h">copper &middot; 18%</span>
+    </div>
+    <div class="sw on-linen" style="background: var(--copper-soft);">
+      <span class="n on-linen">Pressed</span><span class="h on-linen">#B87A4E</span>
+    </div>
+    <div class="sw on-dark primary-mark" style="background: var(--copper);">
+      <span class="n on-dark">Copper <span class="star">&#9733;</span></span>
+      <span class="subcaption">Primary</span>
+      <span class="h on-dark">#E8A574 &middot; var(--primary)</span>
+    </div>
+    <div class="sw on-dark" style="background: var(--copper-deep);">
+      <span class="n on-dark">Lifted</span>
+      <span class="h on-dark">#F2B98C &middot; hover</span>
+    </div>
+  </div>
+
+  <div class="lbl">
+    Sage &middot; <span class="role-tag secondary">Secondary</span>
+    <span style="color: rgba(251,247,238,0.7); letter-spacing: 0; text-transform: none; font-weight: 500; font-size: 11px;">
+      Supporting actions, song surfaces, success
+    </span>
+  </div>
+  <div class="fam">
+    <div class="sw" style="background: var(--sage-wash); color: var(--sage);">
+      <span class="n">Wash</span><span class="h">sage &middot; 18%</span>
+    </div>
+    <div class="sw on-linen" style="background: var(--sage-soft);">
+      <span class="n on-linen">Pressed</span><span class="h on-linen">#8FA893</span>
+    </div>
+    <div class="sw on-dark secondary-mark" style="background: var(--sage);">
+      <span class="n on-dark">Sage <span class="star">&#9733;</span></span>
+      <span class="subcaption">Secondary</span>
+      <span class="h on-dark">#B7CFBC &middot; var(--secondary)</span>
+    </div>
+    <div class="sw on-dark" style="background: var(--sage-deep);">
+      <span class="n on-dark">Lifted</span>
+      <span class="h on-dark">#CCDDD0 &middot; hover</span>
+    </div>
+  </div>
+
+  <div class="lbl">
+    Plum &middot; <span class="role-tag tertiary">Tertiary</span>
+    <span style="color: rgba(251,247,238,0.7); letter-spacing: 0; text-transform: none; font-weight: 500; font-size: 11px;">
+      Brand moments, feature tiles, decorative
+    </span>
+  </div>
+  <div class="fam" style="margin-bottom: 0;">
+    <div class="sw" style="background: var(--plum-wash); color: var(--plum);">
+      <span class="n">Wash</span><span class="h">plum &middot; 18%</span>
+    </div>
+    <div class="sw on-linen" style="background: var(--plum-soft);">
+      <span class="n on-linen">Pressed</span><span class="h on-linen">#B47A8D</span>
+    </div>
+    <div class="sw on-dark" style="background: var(--plum);">
+      <span class="n on-dark">Plum</span>
+      <span class="h on-dark">#D9A6B8 &middot; var(--tertiary)</span>
+    </div>
+    <div class="sw on-dark" style="background: var(--plum-deep);">
+      <span class="n on-dark">Lifted</span>
+      <span class="h on-dark">#E6B8C7</span>
+    </div>
+  </div>
+
+</div></body></html>

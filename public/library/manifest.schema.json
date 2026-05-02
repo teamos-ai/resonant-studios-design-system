@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Resonant Studios — image library manifest",
+  "type": "object",
+  "required": ["version", "categories", "images"],
+  "properties": {
+    "version": { "const": 1 },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "label": { "type": "string" },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["filename", "title", "category"],
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "Path under public/library/, e.g. \"studio/condenser-mic-01.jpg\"."
+          },
+          "title": { "type": "string" },
+          "category": { "type": "string", "description": "Matches a category id." },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "alt": { "type": "string", "description": "Descriptive alt text. Required for production use." },
+          "source": { "type": "string", "description": "Photographer / origin / reference." },
+          "credit": { "type": "string" },
+          "notes": { "type": "string", "description": "Why this image is here, what it references." },
+          "width": { "type": "integer" },
+          "height": { "type": "integer" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

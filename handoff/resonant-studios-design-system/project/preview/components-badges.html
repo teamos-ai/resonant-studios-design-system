@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Badges & tags</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .b { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--oat); color: var(--ink); border: 1px solid var(--rule); }
+  .b.sage { background: var(--sage-wash); color: var(--sage); border-color: transparent; }
+  .b.plum { background: var(--plum-wash); color: var(--plum); border-color: transparent; }
+  .b.copper { background: var(--copper-wash); color: var(--copper); border-color: transparent; }
+  .b.success { background: var(--success-wash); color: var(--success); border-color: transparent; }
+  .b.warning { background: var(--warning-wash); color: var(--warning); border-color: transparent; }
+  .b.error { background: var(--error-wash); color: var(--error); border-color: transparent; }
+  .b.dark { background: var(--linen); color: var(--ink-dark); border-color: transparent; font-weight: 600; }
+  .b .dot { width: 6px; height: 6px; border-radius: 3px; background: currentColor; }
+  .lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; font-weight: 600; }
+</style>
+</head><body><div class="pv">
+  <div class="lbl">Brand tint</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px;">
+    <span class="b">Neutral</span>
+    <span class="b sage"><span class="dot"></span>Plan‑managed</span>
+    <span class="b plum">Intro call</span>
+    <span class="b copper">Final mix</span>
+    <span class="b dark">Premium</span>
+  </div>
+  <div class="lbl">Semantic status</div>
+  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+    <span class="b success"><span class="dot"></span>Session booked</span>
+    <span class="b warning"><span class="dot"></span>Needs your OK</span>
+    <span class="b error"><span class="dot"></span>Missed</span>
+    <span class="b"><span class="dot" style="background: var(--ink-soft);"></span>Draft</span>
+  </div>
+</div></body></html>

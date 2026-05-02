@@ -1,0 +1,259 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Colour in use</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .stage { padding: 22px 24px; background: var(--paper); }
+
+  .role-label {
+    display: inline-block; padding: 3px 8px;
+    font-family: var(--font-body); font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    border-radius: 4px;
+  }
+  .role-label.primary   { background: var(--primary);   color: #000; }
+  .role-label.secondary { background: var(--secondary); color: #000; }
+  .role-label.tertiary  { background: var(--tertiary);  color: #000; }
+
+  .hierarchy {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin-bottom: 18px;
+  }
+  .hrow {
+    padding: 14px 14px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--rule);
+    background: var(--oat);
+  }
+  .hrow .swatch {
+    height: 42px; border-radius: 8px; margin-top: 10px;
+  }
+  .hrow .role-name {
+    font-family: var(--font-display); font-size: 18px; font-weight: 400;
+    color: var(--ink); margin-top: 10px;
+  }
+  .hrow .hex {
+    font-family: var(--font-body); font-variant-numeric: tabular-nums;
+    font-size: 10.5px; color: var(--ink-soft); letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+  .hrow .usage {
+    font-family: var(--font-body); font-size: 11.5px; line-height: 1.5;
+    color: var(--ink-muted); margin-top: 8px;
+  }
+
+  .scene {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+
+  /* Session card — saturated in PRIMARY (copper-deep) */
+  .session-card {
+    background: var(--primary);
+    color: var(--primary-ink);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+  }
+  .session-card .eyebrow {
+    color: rgba(0,0,0,0.65);
+    font-family: var(--font-body);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .session-card .title {
+    font-family: var(--font-display);
+    font-size: 26px; line-height: 1.15; font-weight: 500;
+    color: #000; letter-spacing: -0.01em;
+  }
+  .session-card .title em { font-style: italic; color: #000; }
+  .session-card .meta {
+    color: rgba(0,0,0,0.72);
+    font-family: var(--font-body);
+    font-size: 13px; margin: 10px 0 18px;
+  }
+  .session-card .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .session-card .btn-primary {
+    background: #000; color: var(--primary);
+    border: none; border-radius: 10px;
+    padding: 10px 16px;
+    font-family: var(--font-body); font-weight: 600; font-size: 13px; cursor: pointer;
+  }
+  .session-card .btn-ghost {
+    background: transparent; color: #000;
+    border: 1.5px solid rgba(0,0,0,0.35);
+    border-radius: 10px; padding: 8.5px 14px;
+    font-family: var(--font-body); font-weight: 500; font-size: 13px; cursor: pointer;
+  }
+  .session-card .progress-wrap { margin-top: auto; padding-top: 20px; }
+  .session-card .progress-label {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-body);
+    font-size: 10.5px; color: rgba(0,0,0,0.7);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .session-card .progress-track {
+    height: 6px; background: rgba(0,0,0,0.18); border-radius: 3px; overflow: hidden;
+  }
+  .session-card .progress-fill {
+    width: 50%; height: 100%; background: #000;
+  }
+
+  /* Song card — saturated in SECONDARY (sage-deep) */
+  .song-card {
+    background: var(--secondary);
+    color: var(--secondary-ink);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex; flex-direction: column;
+    box-shadow: var(--shadow-sm);
+  }
+  .song-card .eyebrow {
+    color: rgba(0,0,0,0.55);
+    font-family: var(--font-body);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  }
+  .song-card .title {
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 400;
+    line-height: 1.2; color: #000;
+    letter-spacing: -0.005em;
+    margin-top: 14px;
+  }
+  .song-card .title em { font-style: italic; }
+  .song-card .sub {
+    font-family: var(--font-body);
+    font-size: 13px; color: rgba(0,0,0,0.68); margin-top: 6px;
+  }
+  .song-card .waveform {
+    margin-top: 16px;
+    display: flex; align-items: flex-end; gap: 3px;
+    height: 38px;
+  }
+  .song-card .waveform span {
+    display: block; width: 3px; background: rgba(0,0,0,0.55); border-radius: 1.5px;
+  }
+  .song-card .controls {
+    margin-top: auto; padding-top: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .song-card .play {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #000; color: var(--secondary);
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  .song-card .time {
+    font-family: var(--font-body); font-variant-numeric: tabular-nums;
+    font-size: 12px; color: rgba(0,0,0,0.72);
+    letter-spacing: 0.04em;
+  }
+  .song-card .tag {
+    margin-left: auto;
+    background: rgba(0,0,0,0.12);
+    color: #000;
+    font-family: var(--font-body); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+    padding: 4px 8px; border-radius: 4px;
+  }
+
+  .caption-row {
+    margin-top: 14px; padding: 12px 14px;
+    background: var(--oat); border-radius: 10px; border: 1px solid var(--rule);
+    display: flex; gap: 14px; flex-wrap: wrap;
+    font-family: var(--font-body); font-size: 11px; color: var(--ink-muted);
+    line-height: 1.5;
+  }
+</style>
+</head><body><div class="pv" style="padding: 0;">
+
+<div class="stage">
+  <!-- ROLE HIERARCHY HEADER -->
+  <div class="hierarchy">
+    <div class="hrow">
+      <span class="role-label primary">Primary</span>
+      <div class="swatch" style="background: var(--primary);"></div>
+      <div class="role-name">Copper&thinsp;·&thinsp;deep</div>
+      <div class="hex">#F2B98C &middot; <span style="color:var(--ink-soft);">var(--primary)</span></div>
+      <div class="usage">Session surfaces, primary CTAs, links, active nav, focus rings.</div>
+    </div>
+    <div class="hrow">
+      <span class="role-label secondary">Secondary</span>
+      <div class="swatch" style="background: var(--secondary);"></div>
+      <div class="role-name">Sage&thinsp;·&thinsp;deep</div>
+      <div class="hex">#CCDDD0 &middot; <span style="color:var(--ink-soft);">var(--secondary)</span></div>
+      <div class="usage">Song &amp; project surfaces, supporting actions, completed &amp; success states.</div>
+    </div>
+    <div class="hrow">
+      <span class="role-label tertiary">Tertiary</span>
+      <div class="swatch" style="background: var(--tertiary);"></div>
+      <div class="role-name">Plum</div>
+      <div class="hex">#D9A6B8 &middot; <span style="color:var(--ink-soft);">var(--tertiary)</span></div>
+      <div class="usage">Brand moments, feature tiles, decorative typographic accents.</div>
+    </div>
+  </div>
+
+  <!-- IN-USE SCENE: session card (primary) + song card (secondary) -->
+  <div class="scene">
+
+    <!-- SESSION CARD — PRIMARY (copper-deep) -->
+    <div class="session-card">
+      <div class="eyebrow">Session 4 of 8 &middot; Primary</div>
+      <div class="title">Laying down the <em>vocal take</em></div>
+      <div class="meta">Tuesday, 22 April &middot; 2:00&ndash;3:00 pm &middot; with Jess</div>
+      <div class="btn-row">
+        <button class="btn-primary">Join session</button>
+        <button class="btn-ghost">Reschedule</button>
+        <button class="btn-ghost">Notes</button>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Program progress</span><span>50%</span></div>
+        <div class="progress-track"><div class="progress-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- SONG CARD — SECONDARY (sage-deep) -->
+    <div class="song-card">
+      <div class="eyebrow">Song project &middot; Secondary</div>
+      <div class="title">&ldquo;<em>Morning window</em>&rdquo;</div>
+      <div class="sub">Draft &middot; started 14 March &middot; Jess &amp; Maya</div>
+
+      <div class="waveform" id="wf"></div>
+
+      <div class="controls">
+        <button class="play" aria-label="Play">&#9654;</button>
+        <span class="time">0:42 / 2:41</span>
+        <span class="tag">Mix v3</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption-row">
+    <span><span class="role-label primary" style="padding: 2px 6px; font-size: 8.5px;">Primary</span>&nbsp;&nbsp;Session surface, CTAs, links, active nav.</span>
+    <span><span class="role-label secondary" style="padding: 2px 6px; font-size: 8.5px;">Secondary</span>&nbsp;&nbsp;Song &amp; project surface, supporting actions, completed states.</span>
+    <span><span class="role-label tertiary" style="padding: 2px 6px; font-size: 8.5px;">Tertiary</span>&nbsp;&nbsp;Brand moments &amp; editorial tiles (sparingly).</span>
+  </div>
+</div>
+</div>
+
+<script>
+  // fake waveform
+  (function(){
+    var wf = document.getElementById('wf');
+    if (!wf) return;
+    var seed = 7;
+    function rand() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var bars = 56;
+    for (var i = 0; i < bars; i++) {
+      var s = document.createElement('span');
+      // envelope: louder in middle, quieter at ends
+      var env = Math.sin((i / bars) * Math.PI);
+      var h = 5 + Math.round(env * 28 * (0.55 + rand() * 0.45));
+      s.style.height = h + 'px';
+      if (i / bars > 0.26) s.style.background = 'rgba(0,0,0,0.22)'; // playhead at ~26%
+      wf.appendChild(s);
+    }
+  })();
+</script>
+</body></html>

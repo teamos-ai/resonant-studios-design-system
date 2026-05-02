@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 64" width="360" height="64" role="img" aria-label="Resonant Studios" fill="currentColor" color="#000">
+  
+  <g>
+    <rect x="4" y="26" width="8" height="22" rx="4"></rect>
+    <rect x="16" y="16" width="8" height="32" rx="4"></rect>
+    <rect x="28" y="21" width="8" height="27" rx="4"></rect>
+    <rect x="40" y="10" width="8" height="38" rx="4"></rect>
+    <circle cx="48.5" cy="7" r="3.2" opacity="0.9"></circle>
+  </g>
+  <text x="68" y="44" font-family="&#39;DM Serif Display&#39;, Georgia, serif" font-size="34" font-weight="400" letter-spacing="-0.01em">Resonant <tspan font-style="italic">Studios</tspan></text>
+</svg>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Semantic colors</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .chip { border-radius: 12px; padding: 16px; border: 1px solid var(--rule); }
+  .chip .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
+  .chip .n { font-family: var(--font-display); font-size: 17px; font-weight: 500; }
+  .chip .sub { font-size: 12px; color: var(--ink-muted); margin-top: 2px; }
+  .chip .h { font-family: var(--font-body); font-variant-numeric: tabular-nums; font-weight: 500; font-size: 10px; color: var(--ink-soft); letter-spacing: 0.04em; margin-top: 10px; }
+</style>
+</head><body><div class="pv">
+  <div class="row">
+    <div class="chip" style="background: var(--success-wash);">
+      <div><span class="dot" style="background: var(--success);"></span><span class="n" style="color: var(--success);">Success · Moss</span></div>
+      <div class="sub">Confirmed, saved, completed</div>
+      <div class="h">#A8CFA1 · wash 18%</div>
+    </div>
+    <div class="chip" style="background: var(--warning-wash);">
+      <div><span class="dot" style="background: var(--warning);"></span><span class="n" style="color: var(--warning);">Warning · Amber</span></div>
+      <div class="sub">Action needed, attention</div>
+      <div class="h">#E8C07A · wash 18%</div>
+    </div>
+    <div class="chip" style="background: var(--error-wash);">
+      <div><span class="dot" style="background: var(--error);"></span><span class="n" style="color: var(--error);">Error · Rust</span></div>
+      <div class="sub">Something's wrong, validation</div>
+      <div class="h">#E89A88 · wash 18%</div>
+    </div>
+  </div>
+  <div style="margin-top: 14px; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.04em;">Semantic colours are desaturated to stay in register with the warm palette. Never use stock red/amber/green.</div>
+</div></body></html>

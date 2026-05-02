@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resonant Studios — Round 2: embeds + nav controls</title>
+  <link rel="stylesheet" href="app/globals.css">
+  <style>
+    /* Same path: app/globals.css uses /fonts/... which require a server.
+       For this static preview, fall back to system fonts if Manrope/DM Serif fail. */
+    body { font-family: 'Manrope', system-ui, -apple-system, sans-serif; }
+    .skip-link { position: absolute; top: -100px; left: 8px; background: var(--primary); color: var(--primary-ink); padding: 12px 16px; border-radius: 10px; font-weight: 600; z-index: 100; transition: top var(--dur-fast) var(--ease); }
+    .skip-link:focus { top: 8px; }
+    nav.site { position: sticky; top: 0; z-index: 20; padding: 16px 32px; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px) saturate(1.1); -webkit-backdrop-filter: blur(12px) saturate(1.1); border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 28px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+    .logo span { font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 28px; margin-left: 28px; font-size: 14px; white-space: nowrap; }
+    .nav-links a { color: var(--ink-muted); text-decoration: none; }
+    .nav-links a.active { color: var(--ink); font-weight: 500; border-bottom: 1.5px solid var(--primary); padding-bottom: 3px; }
+    .nav-actions { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+    .a11y-trigger { display: inline-flex; align-items: center; gap: 6px; background: transparent; color: var(--ink); border: 1.5px solid var(--rule-strong); border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 500; cursor: pointer; min-height: 40px; transition: background var(--dur-fast) var(--ease); }
+    .a11y-trigger[aria-expanded="true"] { background: var(--primary-wash); color: var(--primary); border-color: transparent; }
+    .a11y-trigger svg { stroke: currentColor; fill: none; stroke-width: 1.75; }
+    .a11y-popover { position: absolute; top: calc(100% + 8px); right: 0; width: 320px; background: var(--bg-elevated); border: 1px solid var(--rule); border-radius: 14px; padding: 18px; box-shadow: var(--shadow-lg); display: none; flex-direction: column; gap: 18px; }
+    .a11y-popover[data-open="true"] { display: flex; }
+    .a11y-group { display: block; }
+    .a11y-group-label { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: -0.005em; }
+    .a11y-hint { font-size: 11px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
+    .seg { display: grid; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 3px; gap: 2px; }
+    .seg button { padding: 8px 10px; font-size: 12px; font-weight: 500; background: transparent; color: var(--ink); border: none; border-radius: 8px; cursor: pointer; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+    .seg button[aria-checked="true"] { background: var(--primary); color: var(--primary-ink); }
+    .switch { display: flex; align-items: center; gap: 12px; width: 100%; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 12px; cursor: pointer; min-height: 44px; text-align: left; color: var(--ink); font-size: 13px; font-weight: 500; }
+    .switch-track { width: 36px; height: 20px; border-radius: 999px; background: var(--rule-strong); position: relative; flex-shrink: 0; transition: background var(--dur-fast) var(--ease); }
+    .switch-thumb { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 999px; background: var(--bg-elevated); transition: left var(--dur-fast) var(--ease); }
+    .switch[aria-checked="true"] .switch-track { background: var(--primary); }
+    .switch[aria-checked="true"] .switch-thumb { left: 18px; background: var(--primary-ink); }
+    main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 96px; }
+    .eyebrow { font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--primary); }
+    h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 500; color: var(--ink); margin: 0; }
+    h1 { font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.15; letter-spacing: -0.02em; }
+    h2.tall { font-size: 30px; line-height: 1.1; }
+    h2.med { font-size: 26px; }
+    p.lead { color: var(--ink-muted); font-size: 17px; line-height: 1.55; max-width: 720px; }
+    p.copy { color: var(--ink-muted); font-size: 15px; line-height: 1.55; max-width: 720px; margin: 0; }
+    .section-head { margin-bottom: 24px; }
+    .shell { background: var(--bg-elevated); border: 1px solid var(--rule); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-md); }
+    .shell.tight { padding: 32px; }
+    .shell.form-shell { max-width: 640px; }
+    .field-label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .field-label .req { color: var(--primary); margin-left: 4px; }
+    .field-hint { font-size: 12px; color: var(--ink-soft); margin-top: 6px; line-height: 1.45; }
+    .input { display: block; width: 100%; min-height: 48px; background: var(--bg); border: 1.5px solid var(--rule-strong); border-radius: 10px; padding: 12px 14px; font-family: 'Manrope', system-ui, sans-serif; font-size: 16px; color: var(--ink); transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease); }
+    .input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-wash); }
+    textarea.input { resize: vertical; min-height: 96px; }
+    .radio-list { display: flex; flex-direction: column; gap: 10px; }
+    .radio-card { display: flex; align-items: flex-start; gap: 12px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; cursor: pointer; }
+    .radio-card input[type="radio"] { accent-color: var(--primary); margin-top: 3px; }
+    .radio-card strong { font-size: 14px; font-weight: 500; display: block; color: var(--ink); }
+    .radio-card span { font-size: 13px; color: var(--ink-muted); display: block; margin-top: 2px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; font-family: inherit; font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 10px; border: 1.5px solid transparent; background: var(--primary); color: var(--primary-ink); cursor: pointer; box-shadow: var(--shadow-xs); transition: background var(--dur-mid) var(--ease); }
+    .btn:hover { background: var(--primary-hover); }
+    .calendar { background: var(--bg); border: 1px solid var(--rule); border-radius: 14px; padding: 20px; }
+    .cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .cal-head .title { font-family: 'DM Serif Display', Georgia, serif; font-size: 16px; font-weight: 500; }
+    .cal-nav { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--rule); background: var(--bg-elevated); color: var(--ink-muted); font-size: 14px; cursor: pointer; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 11px; }
+    .cal-grid .dow { text-align: center; color: var(--ink-soft); padding: 4px 0; }
+    .cal-grid button { aspect-ratio: 1; border: none; border-radius: 8px; background: transparent; color: var(--ink-soft); font-weight: 500; font-size: 13px; cursor: default; font-variant-numeric: tabular-nums; }
+    .cal-grid button.has-slot { background: var(--primary-wash); color: var(--primary); cursor: pointer; }
+    .cal-grid button.today { outline: 1.5px solid var(--primary); outline-offset: -1px; cursor: pointer; }
+    .cal-grid button.selected { background: var(--primary); color: var(--primary-ink); font-weight: 600; }
+    .cal-grid button.empty { color: var(--ink-faint); cursor: default; }
+    .slot-list { margin-top: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .slot-list .label { font-size: 11px; color: var(--ink-muted); margin-bottom: 4px; }
+    .slot { padding: 10px 12px; text-align: left; background: var(--bg-elevated); color: var(--ink); border: 1.5px solid var(--rule-strong); border-radius: 10px; font-size: 13px; font-weight: 500; cursor: pointer; min-height: 40px; font-variant-numeric: tabular-nums; }
+    .slot.selected { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+    .slot.selected::after { content: " · selected"; font-size: 11px; opacity: 0.85; font-weight: 400; }
+    .meta-list { display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--ink-muted); }
+    .meta-list .row { display: flex; align-items: center; gap: 8px; }
+    .meta-list .icon { color: var(--primary); display: inline-flex; }
+    .meta-list svg { stroke: currentColor; fill: none; stroke-width: 1.75; }
+    .code-block { background: var(--bg-elevated); border: 1px solid var(--rule); border-radius: 14px; padding: 24px; font-family: 'Manrope', monospace; font-variant-numeric: tabular-nums; font-size: 13px; line-height: 1.55; color: var(--ink); overflow-x: auto; box-shadow: var(--shadow-sm); }
+    .code-block pre { margin: 0; white-space: pre-wrap; }
+    .scheduler-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: start; }
+    @media (max-width: 880px) {
+      .scheduler-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      main { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site" aria-label="Primary">
+    <a class="logo" href="/">
+      <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="color: var(--primary)">
+          <circle cx="32" cy="32" r="4" fill="currentColor" stroke="none"/>
+          <circle cx="32" cy="32" r="10" opacity="0.85"/>
+          <circle cx="32" cy="32" r="17" opacity="0.6"/>
+          <circle cx="32" cy="32" r="24" opacity="0.35"/>
+          <circle cx="32" cy="32" r="30" opacity="0.18"/>
+        </g>
+      </svg>
+      <span>Resonant <em>Studios</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">How it works</a>
+      <a href="#">The journey</a>
+      <a href="#">NDIS</a>
+      <a href="#">Stories</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-actions" style="position: relative">
+      <div style="position: relative">
+        <button id="a11yBtn" class="a11y-trigger" aria-label="Accessibility settings" aria-expanded="false" aria-haspopup="dialog">
+          <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M5 8h14"/><path d="M9 13l3 8"/><path d="M15 13l-3 8"/><path d="M12 8v6"/></svg>
+          <span>Accessibility</span>
+          <svg id="a11yChevron" width="14" height="14" viewBox="0 0 24 24" style="transition: transform var(--dur-fast) var(--ease)"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="a11yPopover" class="a11y-popover" role="dialog" aria-label="Accessibility settings" data-open="false">
+          <div class="a11y-group">
+            <div class="a11y-group-label">Theme</div>
+            <div class="seg" role="radiogroup" data-control="theme">
+              <button role="radio" aria-checked="false" data-value="light">☀ Light</button>
+              <button role="radio" aria-checked="false" data-value="dark">☾ Dark</button>
+              <button role="radio" aria-checked="true"  data-value="system">⟳ Auto</button>
+            </div>
+          </div>
+          <div class="a11y-group">
+            <div class="a11y-group-label">Reading</div>
+            <div class="seg" role="radiogroup" data-control="readable">
+              <button role="radio" aria-checked="true"  data-value="default">Default</button>
+              <button role="radio" aria-checked="false" data-value="easy">Aa Easy read</button>
+              <button role="radio" aria-checked="false" data-value="dyslexia">Dyslexia</button>
+            </div>
+            <div class="a11y-hint">Pick what makes the words easiest for you.</div>
+          </div>
+          <div class="a11y-group">
+            <div class="a11y-group-label">Motion</div>
+            <button class="switch" role="switch" aria-checked="false" data-control="reduceMotion">
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>Reduce motion</span>
+            </button>
+            <div class="a11y-hint">Removes animations and transitions.</div>
+          </div>
+          <div class="a11y-group">
+            <div class="a11y-group-label">Contrast</div>
+            <button class="switch" role="switch" aria-checked="false" data-control="highContrast">
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+              <span>More contrast</span>
+            </button>
+            <div class="a11y-hint">Strengthens borders and edges.</div>
+          </div>
+          <div style="border-top: 1px solid var(--rule); padding-top: 12px; font-size: 12px; color: var(--ink-muted); line-height: 1.45;">
+            Settings are saved to this browser. We never share them.
+          </div>
+        </div>
+      </div>
+      <button class="btn" style="white-space: nowrap">Book an intro call</button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header style="margin-bottom: 48px">
+      <div class="eyebrow">Round 2 · Embeds + nav controls</div>
+      <h1 style="margin-top: 12px">How the <em style="color: var(--primary)">booking</em> and <em style="color: var(--primary)">scheduler</em> embeds will look.</h1>
+      <p class="lead" style="margin-top: 16px">Use the <strong>Accessibility</strong> button in the nav to switch between dark/light, turn on easy-read, switch to a dyslexia-friendly font, reduce motion, or increase contrast — every setting flows through the tokens so the form and scheduler restyle live.</p>
+    </header>
+
+    <section style="margin-bottom: 80px">
+      <div class="section-head">
+        <div class="eyebrow">Booking form (Go High Level embed)</div>
+        <h2 class="tall" style="margin-top: 8px">Wrap the GHL form in a <em style="color: var(--primary)">FormShell</em>.</h2>
+        <p class="copy" style="margin-top: 8px">The shell handles the heading, lead, surface, and shadow. The fields use system tokens via custom CSS pasted into GHL's form settings.</p>
+      </div>
+
+      <div class="shell form-shell">
+        <div class="eyebrow" style="margin-bottom: 12px">Free intro call</div>
+        <h2 class="tall" style="margin-bottom: 12px">Tell us a little about you.</h2>
+        <p class="copy" style="margin-bottom: 28px">Thirty minutes, no commitment. We&rsquo;ll talk through your goals and how sessions might work for you.</p>
+
+        <form style="display: flex; flex-direction: column; gap: 16px" onsubmit="event.preventDefault()">
+          <div>
+            <label class="field-label" for="name">Your name<span class="req" aria-hidden="true">*</span></label>
+            <input id="name" class="input" placeholder="First name" required>
+          </div>
+          <div>
+            <label class="field-label" for="email">Email<span class="req" aria-hidden="true">*</span></label>
+            <input id="email" type="email" class="input" placeholder="you@example.com" required>
+            <div class="field-hint">We&rsquo;ll only use this to send your session reminders.</div>
+          </div>
+          <div>
+            <label class="field-label" for="phone">Phone (optional)</label>
+            <input id="phone" type="tel" class="input" placeholder="04xx xxx xxx">
+          </div>
+
+          <fieldset style="border: 0; padding: 0; margin: 0">
+            <legend style="font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 10px">How is your NDIS plan managed?</legend>
+            <div class="radio-list">
+              <label class="radio-card">
+                <input type="radio" name="ndis" value="plan" checked>
+                <div><strong>Plan-managed</strong><span>Invoices go to your plan manager.</span></div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="ndis" value="self">
+                <div><strong>Self-managed</strong><span>We invoice you directly.</span></div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="ndis" value="unsure">
+                <div><strong>Not sure yet</strong><span>We&rsquo;ll help you figure it out.</span></div>
+              </label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label class="field-label" for="outcome">What would a good outcome look like? (optional)</label>
+            <textarea id="outcome" class="input" rows="3" placeholder="A song I'm proud of · more confidence on stage · just to see what it's like"></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="margin-top: 8px; align-self: flex-start">
+            Book an intro call
+            <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+          <p style="font-size: 12px; color: var(--ink-soft); margin-top: 4px">You&rsquo;ll pick a time on the next screen. We&rsquo;ll never share your details.</p>
+        </form>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 80px">
+      <div class="section-head">
+        <div class="eyebrow">Scheduler (Go High Level calendar)</div>
+        <h2 class="tall" style="margin-top: 8px">The <em style="color: var(--primary)">SchedulerShell</em> frames the GHL calendar.</h2>
+        <p class="copy" style="margin-top: 8px">Calendar grid, time slots, and confirmation step all live inside the GHL iframe — the surrounding chrome is ours, so nothing reads like a third-party widget.</p>
+      </div>
+
+      <div class="shell tight">
+        <div class="scheduler-grid">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 12px">Pick a time</div>
+            <h2 class="med" style="margin-bottom: 12px">Thirty minutes, on the phone.</h2>
+            <p class="copy" style="margin-bottom: 20px">Times shown in your local timezone. We&rsquo;ll send a calendar invite once you&rsquo;ve booked.</p>
+            <div class="meta-list">
+              <div class="row"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg></span><span>Tuesday 6 May</span></div>
+              <div class="row"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><span>30 minutes · with Jess</span></div>
+              <div class="row"><span class="icon"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M5 8h14"/><path d="M9 13l3 8"/><path d="M15 13l-3 8"/></svg></span><span>Auslan + plain-English available — ask in the form.</span></div>
+            </div>
+          </div>
+          <div class="calendar">
+            <div class="cal-head">
+              <span class="title">May 2026</span>
+              <span><button class="cal-nav">‹</button> <button class="cal-nav">›</button></span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+            <div class="slot-list">
+              <div class="label">Available times · Tue 6 May</div>
+              <button class="slot">10:00 am</button>
+              <button class="slot selected">11:30 am</button>
+              <button class="slot">2:00 pm</button>
+              <button class="slot">3:30 pm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">GHL custom CSS</div>
+        <h2 class="tall" style="margin-top: 8px">Paste this into the form&rsquo;s <em>Custom CSS</em> field.</h2>
+        <p class="copy" style="margin-top: 8px">GHL's form builder lets you paste CSS that overrides the default theme. This snippet maps GHL's selectors onto our tokens so embedded forms inherit the system.</p>
+      </div>
+      <div class="code-block">
+<pre>/* Resonant Studios — paste into GHL form Settings → Styles → Custom CSS */
+.ghl-form,
+.ghl-form-content {
+  font-family: 'Manrope', system-ui, sans-serif;
+  background: transparent;
+  color: var(--ink, #E6E8EA);
+}
+.ghl-form-content label,
+.ghl-form-content .form-control-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink, #E6E8EA);
+  margin-bottom: 6px;
+}
+.ghl-form-content input[type="text"],
+.ghl-form-content input[type="email"],
+.ghl-form-content input[type="tel"],
+.ghl-form-content textarea,
+.ghl-form-content select {
+  width: 100%;
+  min-height: 48px;
+  background: var(--bg-elevated, #22272B);
+  border: 1.5px solid var(--rule-strong, rgba(230,232,234,0.22));
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--ink, #E6E8EA);
+  transition: border-color 140ms cubic-bezier(0.22,1,0.36,1),
+              box-shadow 140ms cubic-bezier(0.22,1,0.36,1);
+}
+.ghl-form-content input:focus,
+.ghl-form-content textarea:focus,
+.ghl-form-content select:focus {
+  outline: none;
+  border-color: var(--primary, #E58F66);
+  box-shadow: 0 0 0 3px var(--primary-wash, rgba(229,143,102,0.18));
+}
+.ghl-form-content input[aria-invalid="true"] {
+  border-color: var(--error, #E89A88);
+}
+.ghl-form-content button[type="submit"],
+.ghl-form-content .btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: var(--primary, #E58F66);
+  color: var(--primary-ink, #1A0E08);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.40);
+}
+.ghl-form-content button[type="submit"]:hover {
+  background: var(--primary-hover, #F0A57F);
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ===== Calendar grid render ===== */
+    (function buildCal() {
+      const grid = document.getElementById('calGrid');
+      const dows = ['M','T','W','T','F','S','S'];
+      let html = dows.map(d => `<div class="dow">${d}</div>`).join('');
+      const slots = new Set([3,6,7,10,13,14,17,20,21,24,27,28]);
+      for (let i = 0; i < 35; i++) {
+        const day = i - 3;
+        const inMonth = day > 0 && day < 32;
+        const today = day === 2;
+        const selected = day === 6;
+        const hasSlot = slots.has(day);
+        let cls = '';
+        if (!inMonth) cls = 'empty';
+        else if (selected) cls = 'selected';
+        else if (today) cls = 'today';
+        else if (hasSlot) cls = 'has-slot';
+        html += `<button class="${cls}" ${(!hasSlot && !today && !selected) ? 'disabled' : ''}>${inMonth ? day : ''}</button>`;
+      }
+      grid.innerHTML = html;
+    })();
+
+    /* ===== A11y menu interactions ===== */
+    const btn = document.getElementById('a11yBtn');
+    const pop = document.getElementById('a11yPopover');
+    const chev = document.getElementById('a11yChevron');
+    function openPop(open) {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      pop.setAttribute('data-open', open ? 'true' : 'false');
+      chev.style.transform = open ? 'rotate(180deg)' : 'rotate(0)';
+    }
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openPop(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#a11yPopover') && !e.target.closest('#a11yBtn')) openPop(false);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') openPop(false); });
+
+    /* Segmented controls */
+    document.querySelectorAll('.seg').forEach(seg => {
+      seg.addEventListener('click', (e) => {
+        const target = e.target.closest('button[role="radio"]');
+        if (!target) return;
+        seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-checked', b === target ? 'true' : 'false'));
+        applyControl(seg.dataset.control, target.dataset.value);
+      });
+    });
+
+    /* Switches */
+    document.querySelectorAll('.switch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        const next = sw.getAttribute('aria-checked') !== 'true';
+        sw.setAttribute('aria-checked', next ? 'true' : 'false');
+        applyControl(sw.dataset.control, next);
+      });
+    });
+
+    function applyControl(control, value) {
+      const html = document.documentElement;
+      if (control === 'theme') {
+        if (value === 'system') html.removeAttribute('data-theme');
+        else html.setAttribute('data-theme', value);
+      } else if (control === 'readable') {
+        if (value === 'default') html.removeAttribute('data-readable');
+        else html.setAttribute('data-readable', value);
+      } else if (control === 'reduceMotion') {
+        if (value) {
+          html.style.setProperty('--dur-fast', '0ms');
+          html.style.setProperty('--dur-mid', '0ms');
+          html.style.setProperty('--dur-slow', '0ms');
+        } else {
+          html.style.removeProperty('--dur-fast');
+          html.style.removeProperty('--dur-mid');
+          html.style.removeProperty('--dur-slow');
+        }
+      } else if (control === 'highContrast') {
+        if (value) html.setAttribute('data-contrast', 'more');
+        else html.removeAttribute('data-contrast');
+      }
+    }
+  </script>
+</body>
+</html>

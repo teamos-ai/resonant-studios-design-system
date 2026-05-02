@@ -1,0 +1,312 @@
+{
+  "$schema": "./manifest.schema.json",
+  "version": 1,
+  "categories": [
+    { "id": "logos", "label": "Logos", "description": "Resonant Studios brand marks. The 'on-light' variants render on light surfaces, the 'on-dark' variants on dark." },
+    { "id": "hero", "label": "Hero", "description": "Big hero shots — landing pages, page intros." },
+    { "id": "studio", "label": "Studio", "description": "Antony's working studio. Walls, surfaces, atmosphere." },
+    { "id": "equipment", "label": "Equipment", "description": "Keyboard, drum pads, condenser microphones, instruments." },
+    { "id": "participants", "label": "Participants", "description": "Hands on instruments, intimate detail. Never group high-fives." },
+    { "id": "mood", "label": "Mood", "description": "Texture, light, materials. Reference for grading + tone." },
+    { "id": "ui-inspiration", "label": "UI inspiration", "description": "Reference UI / typography / layout from other sites." }
+  ],
+  "images": [
+    {
+      "filename": "hero/music-studio.jpg",
+      "title": "Studio interior — drum kit, amps, monitors",
+      "category": "hero",
+      "tags": ["studio", "drums", "monitors", "amps", "warm-wood", "acoustic-treatment"],
+      "alt": "Wide shot of the Resonant Studios live room — wooden walls with acoustic foam, a drum kit centred on a patterned rug, monitors and amps either side, mics on stands, warm overhead lighting.",
+      "source": "Resonant Studios — studio reference",
+      "notes": "Hero image for the design system landing. Sets the warm, hand-tooled, real-room register."
+    },
+    {
+      "filename": "hero/antony-console-hero-wide.jpg",
+      "title": "Antony at the console — hero, wide",
+      "category": "hero",
+      "tags": ["antony", "console", "smiling", "headphones", "live-room", "warm-light", "wide"],
+      "alt": "Wide shot of Antony at the analogue mixing console wearing a navy t-shirt and headphones, smiling as he adjusts a fader. The live room visible behind the glass — drum kit, amp, mic on stand.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Alternate hero. Most warmth + most movement of the founder shots."
+    },
+    {
+      "filename": "studio/studio-side.jpg",
+      "title": "Studio side — wood paneling, monitors, console edge",
+      "category": "studio",
+      "tags": ["studio", "wood", "monitors", "console", "warm-light", "wide"],
+      "alt": "Side view of the Resonant Studios live room — vertical timber slat acoustic panels, large studio monitors on stands, edge of the console visible in the foreground, warm overhead lighting on the walls.",
+      "source": "Resonant Studios — room reference",
+      "notes": "Section divider between Voice and Examples."
+    },
+    {
+      "filename": "studio/live-room-drums.jpg",
+      "title": "Live room — drum kit with acoustic treatment",
+      "category": "studio",
+      "tags": ["live-room", "acoustic-treatment", "drums", "warm-wood", "wide"],
+      "alt": "Wide view of the studio live room — wooden walls, slat acoustic panels and foam squares, drum kit on a rug, monitors and amps to the side, warm overhead spots.",
+      "source": "Resonant Studios — room reference",
+      "notes": "Section divider between Accessibility and Library."
+    },
+    {
+      "filename": "studio/control-room-wide.jpg",
+      "title": "Control room — full environment",
+      "category": "studio",
+      "tags": ["control-room", "console", "monitors", "ns-10", "wide", "antony"],
+      "alt": "Wide environmental shot of the control room — Antony in navy blazer at a large analogue console, NS-10 monitors and a big main monitor on the wood-panelled wall, Aeron chair, glass through to the live room behind.",
+      "source": "Resonant Studios — room reference",
+      "notes": "The most editorial environmental shot. Use for For Support Coordinators / About / capability pages."
+    },
+    {
+      "filename": "studio/console-motion-blur.jpg",
+      "title": "Motion-blur figure passing the console",
+      "category": "studio",
+      "tags": ["motion-blur", "console", "outboard", "warm-wood", "wide", "atmosphere"],
+      "alt": "A figure walks past the analogue console with intentional motion blur, the outboard rack and console crisp on either side, wooden slat wall behind. Captures the working-studio movement.",
+      "source": "Resonant Studios — atmosphere reference",
+      "notes": "Use for transitional / divider moments where you want a sense of movement without identifying anyone."
+    },
+    {
+      "filename": "participants/founder-client.jpg",
+      "title": "Antony at the desk · participant on guitar behind",
+      "category": "participants",
+      "tags": ["studio", "session", "console", "guitar", "warm-light", "two-people"],
+      "alt": "Antony Rako sitting at a large analogue mixing console, headphones around his neck, smiling as he adjusts a fader. A participant in the live room behind plays an acoustic guitar through the glass.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Used as the divider between the Foundations and Components sections. Captures the working studio register — real desk, real session, two people."
+    },
+    {
+      "filename": "participants/antony-with-participant-session.jpg",
+      "title": "Antony at the console with a participant on guitar",
+      "category": "participants",
+      "tags": ["antony", "participant", "session", "guitar", "console", "two-people", "warm"],
+      "alt": "Antony at the console smiling, a condenser mic on the right, with a participant playing acoustic guitar in the live room behind through the glass. Warm wood walls.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Variant of founder-client.jpg, slightly different framing. Use when the wider session-energy shot is needed."
+    },
+    {
+      "filename": "participants/antony-headshot.jpg",
+      "title": "Antony headshot — navy blazer, terracotta polo",
+      "category": "participants",
+      "tags": ["antony", "headshot", "portrait", "founder", "blazer", "warm-wood"],
+      "alt": "Studio headshot of Antony Rako — bald, navy blazer over a terracotta polo, neutral expression, vertical timber slat wall behind.",
+      "source": "Resonant Studios — founder shot",
+      "notes": "Canonical About / Bio portrait. Use on For Support Coordinators, About, leadership pages."
+    },
+    {
+      "filename": "participants/antony-portrait-window-light.jpg",
+      "title": "Antony portrait — window-light",
+      "category": "participants",
+      "tags": ["antony", "portrait", "window-light", "venetian-blind", "warm-wood", "editorial"],
+      "alt": "Editorial portrait of Antony in a green cardigan against vertical timber slats, soft venetian-blind shadows of warm window light falling across the wall behind him.",
+      "source": "Resonant Studios — editorial portrait",
+      "notes": "Best for storytelling / editorial layouts. The shadow play makes it a strong hero alt."
+    },
+    {
+      "filename": "participants/antony-portrait-profile.jpg",
+      "title": "Antony portrait — three-quarter profile",
+      "category": "participants",
+      "tags": ["antony", "portrait", "profile", "tan-polo", "blazer"],
+      "alt": "Three-quarter profile portrait of Antony in a navy blazer over a tan textured polo, warm wood backdrop. Calm, considered expression.",
+      "source": "Resonant Studios — portrait",
+      "notes": "Pairs well with participant testimonials — quiet, listening register."
+    },
+    {
+      "filename": "participants/antony-portrait-synth-piano.jpg",
+      "title": "Antony portrait — synth and piano either side",
+      "category": "participants",
+      "tags": ["antony", "portrait", "synth", "piano", "cardigan", "wood-panel"],
+      "alt": "Antony seated head-on in a green cardigan, vintage analogue synthesizer to one side and an upright electric piano keyboard to the other, vertical timber slat wall behind.",
+      "source": "Resonant Studios — portrait",
+      "notes": "Strong founder-credibility shot. Conveys hands-on producer."
+    },
+    {
+      "filename": "participants/antony-console-portrait.jpg",
+      "title": "Antony at the console — seated portrait",
+      "category": "participants",
+      "tags": ["antony", "console", "portrait", "ns-10", "blazer", "wide"],
+      "alt": "Antony seated at a large analogue mixing console wearing a navy blazer and terracotta polo, NS-10 monitors flanking him, control-room glass through to the live room behind.",
+      "source": "Resonant Studios — environmental portrait",
+      "notes": "Polished founder-headshot variant. Best for For Support Coordinators landing."
+    },
+    {
+      "filename": "participants/antony-mixing-profile.jpg",
+      "title": "Antony mixing — profile, headphones",
+      "category": "participants",
+      "tags": ["antony", "console", "headphones", "profile", "session"],
+      "alt": "Antony at the console in profile, wearing headphones and a beige jumper, hands on faders, fully focused. Wood-panelled wall and live-room glass behind.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Working-session portrait. Use for process / how-it-works pages."
+    },
+    {
+      "filename": "participants/antony-hands-on-console.jpg",
+      "title": "Antony hands-on — console knobs",
+      "category": "participants",
+      "tags": ["antony", "hands", "console", "detail", "navy-blazer", "tan-polo"],
+      "alt": "Cropped shot of Antony at the console, his hand on the channel knobs, wearing a navy blazer over a tan polo. Cropped at the chin so the focus is on the work.",
+      "source": "Resonant Studios — detail shot",
+      "notes": "Good detail crop for strip / band sections."
+    },
+    {
+      "filename": "participants/antony-drums-portrait.jpg",
+      "title": "Antony at the drum kit — headphones, sticks",
+      "category": "participants",
+      "tags": ["antony", "drums", "headphones", "session", "warm-wood"],
+      "alt": "Antony at the drum kit in profile, headphones on, sticks in hand, wearing a forest-green jumper. Wooden walls behind.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Drumming session portrait. Use when illustrating skill-building or instrument coaching."
+    },
+    {
+      "filename": "participants/antony-vocal-booth.jpg",
+      "title": "Antony at the vocal booth — condenser mic",
+      "category": "participants",
+      "tags": ["antony", "vocal-booth", "condenser-mic", "headphones", "navy-cardigan"],
+      "alt": "Antony in the vocal booth standing at a condenser microphone with pop filter, wearing studio headphones and a navy cardigan over a grey shirt.",
+      "source": "Resonant Studios — session reference",
+      "notes": "Vocal-take portrait. Use when illustrating recording / tracking sessions."
+    },
+    {
+      "filename": "equipment/amps-stack.jpg",
+      "title": "Guitar amplifier heads",
+      "category": "equipment",
+      "tags": ["amps", "valve", "5150", "vintage", "detail"],
+      "alt": "Two guitar amplifier heads stacked — a vintage tube amp on top of a 5150 head — sitting on speaker cabinets on a wooden floor with a rug edge visible.",
+      "source": "Resonant Studios — equipment reference",
+      "notes": "Section divider between Voice and Accessibility."
+    },
+    {
+      "filename": "equipment/drums-cymbal.jpg",
+      "title": "Cymbal stand · drum kit detail",
+      "category": "equipment",
+      "tags": ["drums", "cymbal", "detail", "warm-wood", "rug"],
+      "alt": "Close-up of a cymbal mounted on a chrome boom stand, with a snare drum and seat behind, all on a patterned rug. Wooden walls in the background.",
+      "source": "Resonant Studios — equipment reference",
+      "notes": "Section divider between Components and Voice."
+    },
+    {
+      "filename": "equipment/console-fader-detail.jpg",
+      "title": "Hand on a fader — VU-meter console",
+      "category": "equipment",
+      "tags": ["console", "fader", "vu-meter", "vintage", "detail"],
+      "alt": "Close-up of a hand placing fingers on a fader cap on a vintage analogue console. Three VU meters sit at the top of the frame, knob field stretches into the background.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Excellent texture shot. Use for capability / craft callouts."
+    },
+    {
+      "filename": "equipment/kick-drum-walnut-detail.jpg",
+      "title": "Walnut kick-drum shell — detail",
+      "category": "equipment",
+      "tags": ["drums", "kick", "walnut", "dw", "wood-grain", "detail"],
+      "alt": "Close-up of a walnut DW kick drum shell with chrome lugs and tuning rods, the natural wood grain catching warm light.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Strong wood-grain texture. Pairs with brand register."
+    },
+    {
+      "filename": "equipment/snare-abalone-detail.jpg",
+      "title": "Abalone snare shell — top down",
+      "category": "equipment",
+      "tags": ["drums", "snare", "abalone", "dw", "detail"],
+      "alt": "Top-down detail of a DW snare with an iridescent abalone-finish shell — blue and copper flecks shimmer through black hardware lugs.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Adds a colourful, almost jewel-like accent to grids of texture shots."
+    },
+    {
+      "filename": "equipment/tube-amp-knobs.jpg",
+      "title": "Tube amp control panel — VOL, BASS, TREBLE, REVERB",
+      "category": "equipment",
+      "tags": ["amp", "tube", "knobs", "fender", "vintage", "detail"],
+      "alt": "Close-up of a vintage tube amp control panel — chrome knobs labelled VOL, BASS, TREBLE, TREBLE, REVERB, LOW, with the woven grille cloth visible below.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Classic Fender-style amp face. Useful as a small inline detail."
+    },
+    {
+      "filename": "equipment/combo-amp-floor.jpg",
+      "title": "Combo amp on the studio floor",
+      "category": "equipment",
+      "tags": ["amp", "combo", "floor", "wood-floor", "rug", "warm"],
+      "alt": "A black combo guitar amp with grey woven grille and chrome corners sits on a wooden floor with a patterned rug edge visible. A mic stand is in the soft-focus background.",
+      "source": "Resonant Studios — equipment reference",
+      "notes": "Calm, well-composed equipment shot. Good for lifestyle / setup pages."
+    },
+    {
+      "filename": "equipment/monitor-cone-detail.jpg",
+      "title": "Studio monitor cone — close",
+      "category": "equipment",
+      "tags": ["monitor", "speaker", "cone", "detail"],
+      "alt": "Close-up of a black studio monitor — woofer cone visible at an angle, fabric-covered baffle texture in focus, warm wood wall behind.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Texture shot. Pairs with kick-drum-walnut-detail in a grid."
+    },
+    {
+      "filename": "equipment/outboard-rack-detail.jpg",
+      "title": "Outboard rack — preamp + amp faceplates",
+      "category": "equipment",
+      "tags": ["outboard", "rack", "preamp", "vintage", "detail"],
+      "alt": "Close-up of an outboard rack — preamp, amp 1, and tuner faceplates with chrome screws, dark anodised metal panels, slight depth-of-field falloff into the rest of the rack.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Conveys depth of gear without identifying brands. Good for capability pages."
+    },
+    {
+      "filename": "equipment/mic-stand-cable-rug.jpg",
+      "title": "Mic-stand foot, cable, monitor — rug detail",
+      "category": "equipment",
+      "tags": ["mic-stand", "cable", "monitor", "rug", "detail", "calm"],
+      "alt": "Detail shot at floor level — base of a black mic-stand with coiled XLR cable, the corner of a monitor speaker beside it, all on a patterned blue and red rug.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "Quiet still-life. Use as a calm interlude in image strips."
+    },
+    {
+      "filename": "equipment/patch-cables-rack.jpg",
+      "title": "Patch-cable rack — preamp inputs",
+      "category": "equipment",
+      "tags": ["cables", "patching", "preamp", "rack", "detail"],
+      "alt": "Close-up of patched XLR and braided audio cables connected to preamp and outboard inputs in a black rack, with acoustic foam visible to the right.",
+      "source": "Resonant Studios — equipment detail",
+      "notes": "The 'real working studio' detail. Reads as 'we connect everything properly.' (Originally named Pickup.jpg — actually patching, not a guitar pickup.)"
+    },
+    {
+      "filename": "mood/vinyl-record-shadows.jpg",
+      "title": "Vinyl record · venetian-blind shadows",
+      "category": "mood",
+      "tags": ["vinyl", "shadows", "warm-light", "editorial", "atmosphere"],
+      "alt": "Antony in profile holding a vinyl record up to soft light, an orange 'Acoustic' label visible at the centre, with strong venetian-blind shadows striping the wall behind.",
+      "source": "Resonant Studios — atmosphere reference",
+      "notes": "Strong editorial mood shot. Use for blog / story / pull-quote backdrops."
+    },
+    {
+      "filename": "logos/wordmark-on-dark.png",
+      "title": "Wordmark — for dark surfaces",
+      "category": "logos",
+      "tags": ["wordmark", "white", "dark-mode"],
+      "alt": "Resonant Studios wordmark in white, with the eighth-note R glyph and 'studios.com.au' subtitle.",
+      "source": "Antony's brand asset library",
+      "notes": "Use on dark surfaces (--bg in dark mode). The canonical wordmark."
+    },
+    {
+      "filename": "logos/wordmark-on-light.png",
+      "title": "Wordmark — for light surfaces",
+      "category": "logos",
+      "tags": ["wordmark", "black", "light-mode"],
+      "alt": "Resonant Studios wordmark in black, with the eighth-note R glyph and 'studios.com.au' subtitle.",
+      "source": "Antony's brand asset library",
+      "notes": "Use on light surfaces (--bg in light mode)."
+    },
+    {
+      "filename": "logos/mark-on-dark.png",
+      "title": "Mark — for dark surfaces",
+      "category": "logos",
+      "tags": ["mark", "icon", "white", "dark-mode"],
+      "alt": "Resonant Studios mark — a stylised eighth-note R glyph, in white.",
+      "source": "Antony's brand asset library",
+      "notes": "Use as favicon, app icon, social avatar. Never under 32px."
+    },
+    {
+      "filename": "logos/mark-on-light.png",
+      "title": "Mark — for light surfaces",
+      "category": "logos",
+      "tags": ["mark", "icon", "black", "light-mode"],
+      "alt": "Resonant Studios mark — a stylised eighth-note R glyph, in black.",
+      "source": "Antony's brand asset library",
+      "notes": "Use as favicon, app icon, social avatar. Never under 32px."
+    }
+  ]
+}

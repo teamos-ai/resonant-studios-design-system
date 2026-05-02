@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Iconography</title>
+<link rel="stylesheet" href="../colors_and_type.css?v=c4">
+<link rel="stylesheet" href="_preview.css">
+<script src="https://unpkg.com/lucide@0.462.0"></script>
+<style>
+  .ic { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 4px; border-radius: 10px; background: var(--oat); border: 1px solid var(--rule); }
+  .ic svg { width: 24px; height: 24px; color: var(--ink); stroke-width: 1.5; }
+  .ic span { font-size: 11px; color: var(--ink-muted); }
+</style>
+</head><body><div class="pv">
+  <div style="display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px;">
+    <div class="ic"><i data-lucide="music"></i><span>music</span></div>
+    <div class="ic"><i data-lucide="mic"></i><span>mic</span></div>
+    <div class="ic"><i data-lucide="headphones"></i><span>headphones</span></div>
+    <div class="ic"><i data-lucide="calendar"></i><span>calendar</span></div>
+    <div class="ic"><i data-lucide="user"></i><span>user</span></div>
+    <div class="ic"><i data-lucide="users"></i><span>users</span></div>
+    <div class="ic"><i data-lucide="heart"></i><span>heart</span></div>
+    <div class="ic"><i data-lucide="play"></i><span>play</span></div>
+    <div class="ic"><i data-lucide="arrow-right"></i><span>arrow</span></div>
+    <div class="ic"><i data-lucide="check"></i><span>check</span></div>
+    <div class="ic"><i data-lucide="chevron-down"></i><span>chevron</span></div>
+    <div class="ic"><i data-lucide="sparkles"></i><span>sparkles</span></div>
+    <div class="ic"><i data-lucide="messages-square"></i><span>message</span></div>
+    <div class="ic"><i data-lucide="map-pin"></i><span>location</span></div>
+    <div class="ic"><i data-lucide="download"></i><span>download</span></div>
+    <div class="ic"><i data-lucide="file-text"></i><span>plan</span></div>
+  </div>
+  <div style="margin-top: 12px; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.06em;">Lucide · 1.5px stroke · 24px default · currentColor · never filled</div>
+  <script>lucide.createIcons();</script>
+</div></body></html>
