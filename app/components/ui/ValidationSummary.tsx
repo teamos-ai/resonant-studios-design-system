@@ -22,14 +22,11 @@ export type ValidationSummaryProps = HTMLAttributes<HTMLDivElement> & {
  */
 const ValidationSummary = forwardRef<HTMLDivElement, ValidationSummaryProps>(
   function ValidationSummary({ errors, heading = "Please fix these to continue.", style, ...rest }, ref) {
-    // `HTMLDivElement | null` (rather than just `HTMLDivElement`) gives a
-    // MutableRefObject — assignments to `.current` are allowed. Necessary
-    // for the `setRefs` callback below, which forwards to the parent ref.
-    const ownRef = useRef<HTMLDivElement | null>(null);
-    const setRefs = (node: HTMLDivElement | null) => {
+    const ownRef = useRef<HTMLDivElement>(null);
+    const setRefs = (node: HTMLDivElement) => {
       ownRef.current = node;
       if (typeof ref === "function") ref(node);
-      else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      else if (ref) (ref as React.MutableRefObject<HTMLDivElement>).current = node;
     };
 
     useEffect(() => {
