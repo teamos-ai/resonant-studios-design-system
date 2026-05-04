@@ -16,7 +16,7 @@ const microcopyRules: { component: string; rule: string; good: string; bad: stri
   { component: "Empty state", rule: "Calm description + how it unblocks.", good: "No sessions scheduled yet. Your coordinator will add them here.", bad: "Nothing to see here!" },
   { component: "Loading", rule: "Plain. No personality.", good: "Loading…", bad: "Hold tight!" },
   { component: "Confirm dialog", rule: "Specific verbs as actions.", good: "Cancel session  +  Keep session", bad: "OK + Cancel" },
-  { component: "Avatar fallback", rule: "Initials in display face.", good: "AR (Antony Rako)", bad: "🎵" },
+  { component: "Avatar fallback", rule: "Initials in display face.", good: "TR (Tony Rako)", bad: "🎵" },
   { component: "Time", rule: "12-hour, lowercase am/pm.", good: "2:00 pm", bad: "14:00 / 02:00 PM" },
   { component: "Date", rule: "Natural language.", good: "Tuesday 6 May", bad: "06/05/2026" },
 ];

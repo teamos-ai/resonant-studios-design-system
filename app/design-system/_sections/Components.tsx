@@ -87,7 +87,7 @@ export default function Components() {
             <Button>Book a free discovery call</Button>
             <Button variant="secondary">How sessions run</Button>
             <Button variant="ghost">Refer a participant</Button>
-            <Button variant="tertiary">Email Antony</Button>
+            <Button variant="tertiary">Email Tony</Button>
           </Cluster>
           <Cluster space={3}>
             <Button size="sm">Small</Button>
@@ -104,7 +104,7 @@ export default function Components() {
               <Stack space={2}>
                 <Eyebrow>Session 4 of 8</Eyebrow>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: 17 }}>Vocal take, take two</div>
-                <div style={{ fontSize: 12, color: "var(--ink-muted)" }}>Tue · 2:00 pm · with Antony</div>
+                <div style={{ fontSize: 12, color: "var(--ink-muted)" }}>Tue · 2:00 pm · with Tony</div>
               </Stack>
             </Card>
             <Card pad="lg" elevation="md" radius={4} style={{ width: 200 }}>
@@ -167,16 +167,16 @@ export default function Components() {
           </Stack>
         </Demo>
 
-        <Demo title="Avatar" code="<Avatar name='Antony Rako' src='…' size='lg' />" notes="Pass src for a real photo. Three sizes — sm 28 px, md 40 px, lg 56 px. Falls back to initials in the display face when src is omitted (never emoji).">
+        <Demo title="Avatar" code="<Avatar name='Tony Rako' src='…' size='lg' />" notes="Pass src for a real photo. Three sizes — sm 28 px, md 40 px, lg 56 px. Falls back to initials in the display face when src is omitted (never emoji).">
           <Cluster space={3} align="center">
             {/* Console portrait — polished founder headshot. sm / md / lg. */}
-            <Avatar name="Antony Rako" size="sm" src="/library/participants/antony-console-portrait.jpg" />
-            <Avatar name="Antony Rako" size="md" src="/library/participants/antony-console-portrait.jpg" />
-            <Avatar name="Antony Rako" size="lg" src="/library/participants/antony-console-portrait.jpg" />
+            <Avatar name="Tony Rako" size="sm" src="/library/participants/antony-console-portrait.jpg" />
+            <Avatar name="Tony Rako" size="md" src="/library/participants/antony-console-portrait.jpg" />
+            <Avatar name="Tony Rako" size="lg" src="/library/participants/antony-console-portrait.jpg" />
             {/* Window-light portrait — editorial / storytelling. sm / md / lg. */}
-            <Avatar name="Antony Rako" size="sm" src="/library/participants/antony-portrait-window-light.jpg" />
-            <Avatar name="Antony Rako" size="md" src="/library/participants/antony-portrait-window-light.jpg" />
-            <Avatar name="Antony Rako" size="lg" src="/library/participants/antony-portrait-window-light.jpg" />
+            <Avatar name="Tony Rako" size="sm" src="/library/participants/antony-portrait-window-light.jpg" />
+            <Avatar name="Tony Rako" size="md" src="/library/participants/antony-portrait-window-light.jpg" />
+            <Avatar name="Tony Rako" size="lg" src="/library/participants/antony-portrait-window-light.jpg" />
           </Cluster>
         </Demo>
 

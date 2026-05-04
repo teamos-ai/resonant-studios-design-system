@@ -44,7 +44,7 @@ Max width 2400 px on desktop heroes; 1200 px is enough for everything else. The 
       "category": "studio",
       "tags": ["microphone", "warm-light", "detail-shot"],
       "alt": "Side-on detail of a black condenser microphone with a soft window of morning light catching the grille.",
-      "source": "Antony's studio · 2026-04",
+      "source": "Tony's studio · 2026-04",
       "notes": "Reference for the 'studio detail' direction in the brand README."
     }
   ]
@@ -65,7 +65,7 @@ Max width 2400 px on desktop heroes; 1200 px is enough for everything else. The 
 |---|---|
 | `alt` | Descriptive alt text for accessibility. Required when the image goes into production use. |
 | `tags` | Free-form. Filter chips in the library section are derived from these. |
-| `source` | Where it came from (Antony's studio, photographer name, Unsplash link, etc.). |
+| `source` | Where it came from (Tony's studio, photographer name, Unsplash link, etc.). |
 | `notes` | Why this image is in the library. What it references. |
 | `credit` | Photographer credit if licensed. Show under the image in the UI. |
 

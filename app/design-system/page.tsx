@@ -35,8 +35,8 @@ export default function DesignSystemPage() {
       {/* 01 → 02 */}
       <SectionDivider
         src="/library/participants/founder-client.jpg"
-        alt="Antony at the mixing console with a participant on guitar in the live room behind."
-        caption="From tokens to working components — Antony at the desk."
+        alt="Tony at the mixing console with a participant on guitar in the live room behind."
+        caption="From tokens to working components — Tony at the desk."
       />
 
       <Components />

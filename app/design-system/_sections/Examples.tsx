@@ -106,9 +106,9 @@ function MarketingHeroExample() {
             <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 500, lineHeight: 1.2, marginTop: "var(--s-2)" }}>
               Vocal take, take two
             </div>
-            <div style={{ fontSize: 13, color: "var(--ink-muted)", marginTop: 4 }}>Tue · 2:00 pm · with Antony</div>
+            <div style={{ fontSize: 13, color: "var(--ink-muted)", marginTop: 4 }}>Tue · 2:00 pm · with Tony</div>
             <div style={{ marginTop: "var(--s-4)", display: "flex", alignItems: "center", gap: "var(--s-3)" }}>
-              <Avatar name="Antony Rako" size="sm" />
+              <Avatar name="Tony Rako" size="sm" />
               <span style={{ fontSize: 12, color: "var(--ink-muted)" }}>You&rsquo;re working on it together.</span>
             </div>
           </Card>
@@ -156,7 +156,7 @@ function PricingExample() {
 
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "var(--s-2)" }}>
             {[
-              "One-on-one with Antony in the studio",
+              "One-on-one with Tony in the studio",
               "3 hours per week, every week",
               "A finished, professionally produced track",
               "Released on Spotify under your name",
@@ -200,9 +200,9 @@ function PortalBentoExample() {
               <div style={{ fontSize: 13, color: "var(--ink-muted)", marginTop: 4 }}>Tuesday 6 May · 2:00 pm</div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--s-3)", paddingTop: "var(--s-3)", borderTop: "1px solid var(--rule)" }}>
-              <Avatar name="Antony Rako" size="md" />
+              <Avatar name="Tony Rako" size="md" />
               <div>
-                <div style={{ fontSize: 13, fontWeight: 500, color: "var(--ink)" }}>Antony</div>
+                <div style={{ fontSize: 13, fontWeight: 500, color: "var(--ink)" }}>Tony</div>
                 <div style={{ fontSize: 12, color: "var(--ink-muted)" }}>Your facilitator</div>
               </div>
             </div>
@@ -262,10 +262,10 @@ function PortalBentoExample() {
             the mobile fix. */}
         <Card pad="md" elevation="sm" radius={3} style={{ gridColumn: "1 / -1" }}>
           <div style={{ display: "flex", gap: "var(--s-3)", alignItems: "flex-start" }}>
-            <Avatar name="Antony Rako" size="sm" />
+            <Avatar name="Tony Rako" size="sm" />
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "var(--s-3)" }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>Antony</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink)" }}>Tony</div>
                 <div style={{ fontSize: 11, color: "var(--ink-soft)", flexShrink: 0 }}>2 hours ago</div>
               </div>
               <p style={{ fontSize: 13, color: "var(--ink-muted)", lineHeight: 1.55, margin: "4px 0 0" }}>

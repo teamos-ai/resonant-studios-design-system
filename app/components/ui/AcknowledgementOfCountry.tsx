@@ -4,7 +4,7 @@ import { forwardRef, type HTMLAttributes } from "react";
 export type AcknowledgementOfCountryProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Custom acknowledgement text. Defaults to the generic placeholder pending
-   * Antony's preferred phrasing (see BRIEF.md → Open items).
+   * Tony's preferred phrasing (see BRIEF.md → Open items).
    *
    * Use the specific Traditional Custodians' name when locked. Avoid
    * "the land on which we work" alone — name the people.

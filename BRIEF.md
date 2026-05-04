@@ -8,7 +8,7 @@ Last updated: 2026-05-02
 
 ## What Resonant Studios is
 
-A boutique, NDIS-aligned music production studio in Melbourne's west — Werribee / Wyndham / Hoppers Crossing / Point Cook. Domain: `resonantstudios.com.au`. Founded by **Antony Rako**, who brings 25+ years of professional music production experience and lived disability experience to the work.
+A boutique, NDIS-aligned music production studio in Melbourne's west — Werribee / Wyndham / Hoppers Crossing / Point Cook. Domain: `resonantstudios.com.au`. Founded by **Tony Rako**, who brings 25+ years of professional music production experience and lived disability experience to the work.
 
 Each participant works through a 12-week program (weekly 3-hour sessions) toward a finished, professionally produced song released on Spotify under their own name. The studio sits deliberately between two things it is not: it's not a recording studio for hire, and it's not a clinical music-therapy service. It's a structured support service delivered by a working musician.
 
@@ -156,6 +156,8 @@ Brand voice is enforced as component contracts, not just guidance.
 
 **Approved core terms:** `participant` · `you` · `your song` · `your story` · `discovery call` · `session` · `support coordinator` · `plan manager` · `self-managed` · `plan-managed` · `studio` · `track` / `song`.
 
+**Founder name — strict rule.** The studio's founder is referred to as **Tony** in all public-facing surfaces, design-system content, AI-generated copy, marketing assets, business cards, social bios, voice contracts, and component examples. Never `Antony`, `Anthony`, `Mr Rako`, or `Antony Rako`. Approved forms: `Tony` (most contexts) · `Tony Rako` (formal — invoices, legal, NDIS plan documents). When generating new copy, components, or assets from this design system — including any AI-assisted output — always default to `Tony`. This rule overrides all prior uses of `Antony` anywhere in this repo.
+
 **Plain English Australia readability targets:**
 
 | Rule | Threshold |
@@ -220,7 +222,7 @@ Secondary CTA on referrer-facing pages: **"Refer a participant."**
 
 ## Imagery direction
 
-- Subjects: Antony's actual gear — keyboard, drum pads, condenser microphone. Hands on instruments. Textured walls. Studio detail shots.
+- Subjects: Tony's actual gear — keyboard, drum pads, condenser microphone. Hands on instruments. Textured walls. Studio detail shots.
 - Grading: warm, natural, slightly desaturated. Shadows hold colour.
 - **Forbidden:** stock smiling-headshot photography · neon-lit producer studios · clinical hospital imagery · groups high-fiving / laughing · overly processed HDR.
 - Crop generously.
@@ -256,4 +258,4 @@ The legacy concentric-circles SVG at `public/assets/logo.svg` is deprecated; rem
 
 - Photography: replace placeholder gradient hero with real studio shots once available.
 - Spotify integration spec: how/where the participant's finished track surfaces (audio player UI + Spotify deep link).
-- Acknowledgement of Country exact wording — currently using a generic Wadawurrung + Bunurong default; needs Antony's preferred phrasing.
+- Acknowledgement of Country exact wording — currently using a generic Wadawurrung + Bunurong default; needs Tony's preferred phrasing.
