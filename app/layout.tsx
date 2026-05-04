@@ -7,11 +7,10 @@ export const metadata: Metadata = {
     "Design tokens, UI primitives, voice contracts, and accessibility commitments for the Resonant Studios brand. Live styleguide at /design-system.",
   metadataBase: new URL("https://resonantstudios.com.au"),
   icons: {
-    icon: [
-      { url: "/library/logos/mark-on-dark.png", media: "(prefers-color-scheme: dark)" },
-      { url: "/library/logos/mark-on-light.png", media: "(prefers-color-scheme: light)" },
-    ],
-    apple: "/library/logos/mark-on-light.png",
+    // Theme-agnostic app icon — wood-trimmed squircle on a transparent canvas,
+    // so a single asset works for light, dark, and glass-backed contexts.
+    icon: "/library/logos/app-icon--speaker-mesh.png",
+    apple: "/library/logos/app-icon--speaker-mesh.png",
   },
 };
 

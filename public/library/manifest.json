@@ -379,6 +379,15 @@
       "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a black leather surface with a soft wood-grain trim around the edge.",
       "source": "Tony's brand asset library",
       "notes": "App-icon variant. Most editorial / hi-fi-component register. Combines the leather + wood signatures."
+    },
+    {
+      "filename": "logos/app-icon--speaker-mesh.png",
+      "title": "App icon — speaker mesh with wood trim",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "speaker-grille", "wood-trim", "white-letter", "rounded-square", "transparent-bg"],
+      "alt": "Rounded-square app icon on a transparent canvas — Resonant Studios R glyph in white on a perforated speaker-mesh surface, framed by a soft wood-grain trim.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant — transparent outer canvas. Used as the floating-nav logo and as the site favicon. Works on light, dark, and glass surfaces because the wood trim defines the edge regardless of background."
     }
   ]
 }
