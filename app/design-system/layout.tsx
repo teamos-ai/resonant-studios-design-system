@@ -155,24 +155,18 @@ export default function DesignSystemLayout({ children }: { children: React.React
             flexShrink: 0,
           }}
         >
+          {/* Theme-agnostic app-icon — leather body + wood trim works on
+              both light and dark surfaces, so a single <Image> replaces the
+              previous dual mark-on-light / mark-on-dark swap for this nav.
+              The `<Logo>` primitive (used in Components demo) still uses the
+              theme-aware swap for cases where the surface IS theme-bound. */}
           <Image
-            src="/assets/nav/mark-on-light.png"
+            src="/library/logos/app-icon--black-leather-wood-trim.png"
             alt=""
             aria-hidden="true"
             width={40}
             height={40}
             priority
-            className="rs-logo--on-light"
-            style={{ height: 40, width: 40 }}
-          />
-          <Image
-            src="/assets/nav/mark-on-dark.png"
-            alt=""
-            aria-hidden="true"
-            width={40}
-            height={40}
-            priority
-            className="rs-logo--on-dark"
             style={{ height: 40, width: 40 }}
           />
         </a>
