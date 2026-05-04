@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Resonant Studios — Music-based NDIS support",
+  title: "Resonant Studios — Design System",
   description:
-    "We work with self-managed and plan-managed NDIS participants through personalised music sessions that build confidence, skill, and self-expression — ending, if you want, in a Spotify-ready song that's really yours.",
+    "Design tokens, UI primitives, voice contracts, and accessibility commitments for the Resonant Studios brand. Live styleguide at /design-system.",
   metadataBase: new URL("https://resonantstudios.com.au"),
   icons: {
     icon: [

@@ -1,24 +1,17 @@
-# Resonant Studios — website
+# Resonant Studios — Design System
 
-Music-based NDIS support delivered with the warmth of a working studio and the rigour of a structured service.
+Design tokens, UI primitives, voice contracts, and accessibility commitments for the Resonant Studios brand. The whole system is exposed as a live styleguide route built with Next.js 15 (App Router).
 
-This repository is the production website for Resonant Studios, built in Next.js (App Router) with the Resonant Design System. Designed for handoff via GitHub and deployment via Vercel.
-
-## Stack
-
-- **Next.js 15** (App Router, React 18, TypeScript)
-- **CSS custom properties** for design tokens (no Tailwind, no CSS-in-JS runtime)
-- **Self-hosted fonts** — DM Serif Display (display) and Manrope (body/UI)
-- **lucide-react** for icons (1.5px stroke, currentColor)
-
-## Local development
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000/design-system](http://localhost:3000/design-system).
+
+The bare root (`/`) redirects to the styleguide, so any deployment of this repo will land visitors directly on the system.
 
 ## Build
 
@@ -27,69 +20,42 @@ npm run build
 npm start
 ```
 
-## Deploy to Vercel
+## Lint
 
-This project is Vercel-ready. After pushing to GitHub:
-
-1. Import the repo at [vercel.com/new](https://vercel.com/new)
-2. Framework preset: **Next.js** (auto-detected)
-3. Build command: `next build`
-4. Output: `.next`
-5. Deploy.
-
-No environment variables are required for the marketing site.
-
-## Project structure
-
-```
-.
-├── app/
-│   ├── layout.tsx          # Root layout (metadata, body)
-│   ├── page.tsx            # Marketing home
-│   ├── globals.css         # Design tokens + base styles + paper-grain overlay
-│   └── components/         # Page sections (Nav, Hero, HowItWorks, …)
-├── public/
-│   ├── fonts/              # DM Serif Display + Manrope (TTF)
-│   └── assets/             # Logos, marks, paper-grain
-├── handoff/                # Original design bundle (source of truth)
-│   └── resonant-studios-design-system/
-└── …
+```bash
+npm run lint        # next lint (TS + React rules)
+npm run lint:copy   # Plain English Australia readability check on UI strings
 ```
 
-## Design system
+## What's here
 
-The canonical design tokens live in `handoff/resonant-studios-design-system/project/colors_and_type.css`. The runtime copy in `app/globals.css` mirrors it 1:1 (with `/fonts/...` / `/assets/...` paths adapted for Next.js `public/`).
+| Path | Purpose |
+| ---- | ------- |
+| `app/globals.css` | Three-tier token system (primitive → semantic → component). Theme-aware; dark default, manual `data-theme` override or OS-follow. |
+| `app/components/ui/` | The 23 v1 primitives — Button, Card, Field, Input, Heading, AccessibilityMenu, ValidationSummary, FormShell, SchedulerShell, etc. All consume tier-2 semantic tokens only; never a hex code. |
+| `app/design-system/` | The live styleguide route. Six sections: Foundations, Components, Voice, Examples, Accessibility, Library. |
+| `public/library/` | Reference imagery (studio, equipment, participants, hero, mood) consumed by the Library section and the in-context Examples. |
+| `public/fonts/` | Self-hosted DM Serif Display + Manrope. |
+| `BRIEF.md` | Canonical source of truth — locked decisions on colour, typography, motion, shape, voice, and accessibility floor. If anything in source disagrees with the BRIEF, the BRIEF wins. |
+| `.impeccable.md` | Project design context derived from the BRIEF, used by the impeccable family of design skills. |
+| `scripts/readability-check.mjs` | Flesch-Kincaid + Plain English Australia checks against UI copy. |
 
-Refer to `handoff/resonant-studios-design-system/project/README.md` for:
+## House rules (the short list)
 
-- Brand voice and content rules (sentence case, second person, no emoji…)
-- Visual foundations (colour, type, grain, radii, motion, spacing)
-- Iconography (Lucide, 1.5px stroke)
+- **Tokens:** components consume tier-2 (`var(--primary)`, `var(--ink)`) only. No hex in component files. No primitive token (`--terra-300`, `--linen-100`) in component files. Mode switching = swap tier-2 values; never edit components.
+- **Shape language:** rounded squares, not pills. `--r-pill` is reserved for genuinely circular elements (avatars, switch tracks, status dots, audio play buttons).
+- **Motion:** out-expo only — `cubic-bezier(0.22, 1, 0.36, 1)`. Three durations: `140ms` micro · `220ms` component · `420ms` scene. No springs, no bounces.
+- **Accessibility:** WCAG 2.2 AA across all interactive surfaces; AAA body contrast for long-form. 48 px touch targets (Material spec). Focus rings always visible — `outline: none` is forbidden. `prefers-reduced-motion`, `prefers-contrast: more`, `prefers-reduced-data` all honoured.
+- **Voice:** brand voice is enforced as a component contract, not guidance. Button warns in dev for trailing `!`. Field refuses to render hint and error simultaneously. Banned-word list is in BRIEF §7.
 
-If you change tokens, change them in **both** files or refactor `globals.css` to `@import` the canonical CSS.
+See `BRIEF.md` and `app/components/ui/README.md` for the full spec.
 
-## Components on the marketing home
+## Stack
 
-| Section      | File                              | Purpose                                 |
-| ------------ | --------------------------------- | --------------------------------------- |
-| Nav          | `app/components/Nav.tsx`          | Sticky top nav with brand mark + CTAs   |
-| Hero         | `app/components/Hero.tsx`         | Headline, lead, CTAs, hero card         |
-| How it works | `app/components/HowItWorks.tsx`   | 3-step explainer cards                  |
-| Journey      | `app/components/Journey.tsx`      | Phase tracker (Lucide icons, 3 states)  |
-| NDIS block   | `app/components/NdisBlock.tsx`    | Funding paths (plan / self / coord)     |
-| Story        | `app/components/Story.tsx`        | Pull-quote, audio preview               |
-| CTA band     | `app/components/CtaBand.tsx`      | Final intro-call CTA                    |
-| Footer       | `app/components/Footer.tsx`       | Sitemap, acknowledgement of country     |
-
-## House rules (summary)
-
-- Warm dark surfaces (`#000` / `#1A1A1A`), white ink, copper as primary CTA
-- DM Serif Display for headings (italic for emphasis); Manrope everywhere else
-- Paper grain overlay at 4% opacity on body via `::before`
-- Out-expo easing, 140/220/420ms — no bounces, no springs
-- Sentence case, second person ("you"), no emoji, no producer-speak
-
-See the design system README for the full set.
+- Next.js 15 (App Router) · React 18 · TypeScript
+- CSS custom properties for tokens (no Tailwind, no CSS-in-JS runtime)
+- `lucide-react` for icons (1.5 px stroke, `currentColor`)
+- Self-hosted fonts via `@font-face` with `font-display: swap`
 
 ## License
 

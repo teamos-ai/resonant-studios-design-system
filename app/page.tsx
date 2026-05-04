@@ -1,25 +1,10 @@
-import Nav from "./components/Nav";
-import Hero from "./components/Hero";
-import HowItWorks from "./components/HowItWorks";
-import Journey from "./components/Journey";
-import NdisBlock from "./components/NdisBlock";
-import Story from "./components/Story";
-import CtaBand from "./components/CtaBand";
-import Footer from "./components/Footer";
+import { redirect } from "next/navigation";
 
+/**
+ * The repo is a design-system project. The styleguide lives at
+ * `/design-system`; root just bounces visitors there so anyone who
+ * lands at the bare domain sees the system rather than a 404.
+ */
 export default function Home() {
-  return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <HowItWorks />
-        <Journey />
-        <NdisBlock />
-        <Story />
-        <CtaBand />
-      </main>
-      <Footer />
-    </>
-  );
+  redirect("/design-system");
 }
