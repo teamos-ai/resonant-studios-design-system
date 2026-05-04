@@ -299,8 +299,12 @@ export default function Components() {
                 style={{ width: "100%", border: "none", overflow: "hidden", display: "block", minHeight: 480 }}
               />
             </div>
-            {/* Same form_embed.js as the SchedulerShell — Next dedupes scripts by src, so this is safe. */}
-            <Script src="https://link.teamos.ai/js/form_embed.js" strategy="lazyOnload" />
+            {/* GHL auto-resize bootstrap. Same script in the SchedulerShell demo below;
+                Next dedupes by src so it loads exactly once. afterInteractive (not
+                lazyOnload) — lazyOnload waits for the page to reach idle, which never
+                happens on this 35k-px-tall styleguide with 70+ lazy images, so the
+                widget would never bootstrap. */}
+            <Script src="https://link.teamos.ai/js/form_embed.js" strategy="afterInteractive" />
           </FormShell>
         </Demo>
 
@@ -333,8 +337,8 @@ export default function Components() {
                 style={{ width: "100%", border: "none", overflow: "hidden", display: "block", minHeight: 720 }}
               />
             </div>
-            {/* GHL auto-resize script. lazyOnload so it doesn't block first paint of the styleguide. */}
-            <Script src="https://link.teamos.ai/js/form_embed.js" strategy="lazyOnload" />
+            {/* GHL auto-resize bootstrap. Loads once (Next dedupes by src). */}
+            <Script src="https://link.teamos.ai/js/form_embed.js" strategy="afterInteractive" />
           </SchedulerShell>
         </Demo>
 
