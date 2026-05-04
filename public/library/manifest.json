@@ -307,6 +307,78 @@
       "alt": "Resonant Studios mark — a stylised eighth-note R glyph, in black.",
       "source": "Tony's brand asset library",
       "notes": "Use as favicon, app icon, social avatar. Never under 32px."
+    },
+    {
+      "filename": "logos/app-icon--white.png",
+      "title": "App icon — pale, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "pale", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a pale, near-white surface.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Subtle / minimalist surface. Pairs with light-mode home screens."
+    },
+    {
+      "filename": "logos/app-icon--dark-wood.png",
+      "title": "App icon — dark wood, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "wood", "dark", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a dark walnut wood-grain surface.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Warmest / richest dark surface. Strong against dark-mode home screens."
+    },
+    {
+      "filename": "logos/app-icon--light-wood.png",
+      "title": "App icon — light wood, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "wood", "light", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a light maple wood-grain surface.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. The softest, most studio-furniture register. Default for light-mode home screens."
+    },
+    {
+      "filename": "logos/app-icon--black-leather.png",
+      "title": "App icon — black leather, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "leather", "black", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a black leather-textured surface.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Premium / studio-equipment register. Strong on dark surfaces."
+    },
+    {
+      "filename": "logos/app-icon--two-tone-wood.png",
+      "title": "App icon — two-tone wood, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "wood", "two-tone", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a two-tone wood surface with a darker trim band.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Most crafted / cabinet-maker register. Use when emphasising the artisan side of the brand."
+    },
+    {
+      "filename": "logos/app-icon--black-debossed.png",
+      "title": "App icon — black debossed",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "black", "debossed", "monochrome", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph debossed into a black textured surface, no colour contrast.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Quiet, monochrome. Use where the icon must recede or sit alongside other dark icons."
+    },
+    {
+      "filename": "logos/app-icon--white-tile.png",
+      "title": "App icon — cream tile, black letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "tile", "cream", "black-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in black on a cream stone-tile surface.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Inverted — dark glyph on light. Use as the default light-mode app icon."
+    },
+    {
+      "filename": "logos/app-icon--black-leather-wood-trim.png",
+      "title": "App icon — black leather with wood trim, white letter",
+      "category": "logos",
+      "tags": ["app-icon", "skeuomorphic", "leather", "wood-trim", "black", "white-letter", "rounded-square"],
+      "alt": "Rounded-square app icon — Resonant Studios R glyph in white on a black leather surface with a soft wood-grain trim around the edge.",
+      "source": "Tony's brand asset library",
+      "notes": "App-icon variant. Most editorial / hi-fi-component register. Combines the leather + wood signatures."
     }
   ]
 }
