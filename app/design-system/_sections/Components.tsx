@@ -167,25 +167,16 @@ export default function Components() {
           </Stack>
         </Demo>
 
-        <Demo title="Avatar" code="<Avatar name='Antony Rako' src='…' />" notes="Initials in display face by default. Pass src for a real photo. Never emoji.">
+        <Demo title="Avatar" code="<Avatar name='Antony Rako' src='…' size='lg' />" notes="Pass src for a real photo. Three sizes — sm 28 px, md 40 px, lg 56 px. Falls back to initials in the display face when src is omitted (never emoji).">
           <Cluster space={3} align="center">
-            <Avatar name="Antony Rako" size="sm" />
-            <Avatar name="Antony Rako" size="md" />
-            <Avatar name="Antony Rako" size="lg" />
-            <Avatar name="Antony Rako" tone="primary" />
-            <Avatar name="Antony Rako" tone="secondary" />
-            <Avatar name="Antony Rako" tone="accent" />
-            {/* Photo variants — used for support-coordinator and editorial surfaces. */}
-            <Avatar
-              name="Antony Rako"
-              size="lg"
-              src="/library/participants/antony-console-portrait.jpg"
-            />
-            <Avatar
-              name="Antony Rako"
-              size="lg"
-              src="/library/participants/antony-portrait-window-light.jpg"
-            />
+            {/* Console portrait — polished founder headshot. sm / md / lg. */}
+            <Avatar name="Antony Rako" size="sm" src="/library/participants/antony-console-portrait.jpg" />
+            <Avatar name="Antony Rako" size="md" src="/library/participants/antony-console-portrait.jpg" />
+            <Avatar name="Antony Rako" size="lg" src="/library/participants/antony-console-portrait.jpg" />
+            {/* Window-light portrait — editorial / storytelling. sm / md / lg. */}
+            <Avatar name="Antony Rako" size="sm" src="/library/participants/antony-portrait-window-light.jpg" />
+            <Avatar name="Antony Rako" size="md" src="/library/participants/antony-portrait-window-light.jpg" />
+            <Avatar name="Antony Rako" size="lg" src="/library/participants/antony-portrait-window-light.jpg" />
           </Cluster>
         </Demo>
 
