@@ -239,20 +239,20 @@ Lucide icons, **1.5px** stroke weight (not 2px default), `currentColor` only. Si
 - 3–5 support-coordinator referrals per month.
 - 60%+ discovery-call → first-session conversion rate.
 
-## Locked logo (2026-05-02)
+## Locked logo (2026-05-26)
 
-The eighth-note R glyph is the canonical mark. Four files live under `public/library/logos/`:
+**Mark:** `public/library/logos/app-icon--speaker-mesh.png` — a self-contained skeuomorphic app icon (dark speaker-mesh body inside a warm wood-trim frame, white R glyph centred, soft 3D shadow). Because the icon has its own dark body and white text, **one file works on both light and dark surfaces** — no theme swap needed.
 
-| File | Use on |
-|---|---|
-| `wordmark-on-light.png` | Light surfaces (`--bg` in light mode). The default web wordmark. |
-| `wordmark-on-dark.png` | Dark surfaces (`--bg` in dark mode). |
-| `mark-on-light.png` | Favicon, app icon, social avatar — light backgrounds. |
-| `mark-on-dark.png` | Same — dark backgrounds. |
+Used by:
+- Floating nav (`app/design-system/layout.tsx`)
+- `<Logo variant="mark">` primitive (`app/components/ui/Logo.tsx`)
+- Favicon + Apple touch icon (`app/layout.tsx`)
 
-The `<Logo>` primitive auto-swaps between the on-light / on-dark variants via the `.rs-logo--on-light` / `.rs-logo--on-dark` CSS classes — same precedence chain as the colour tokens (manual `data-theme` wins, OS preference falls through). Force a fixed tone with `tone="light"` or `tone="dark"` only when the surface colour is fixed regardless of theme (e.g. a brand sticker on a coloured card).
+**Wordmark:** `public/library/logos/wordmark--speaker-mesh.png` — the rectangle lock-up. Same skeuomorphic treatment as the mark (dark speaker grille + warm wood trim), white R glyph followed by "studios.com.au". One file works on both light and dark surfaces, no theme swap. Used by `<Logo variant="wordmark">`.
 
-The legacy concentric-circles SVG at `public/assets/logo.svg` is deprecated; remove on next pass.
+**Alternative app-icon variants** are also in `public/library/logos/` (black-leather, dark-wood, light-wood, two-tone-wood, white-tile, etc.) for context-specific use — see the Library section of the styleguide for the full set.
+
+The deprecated eighth-note R files (`mark-on-light`, `mark-on-dark`, `wordmark-on-light`, `wordmark-on-dark`) and the concentric-circles SVG at `public/assets/logo.svg` were removed 2026-05-26.
 
 ## Open items / TBD
 

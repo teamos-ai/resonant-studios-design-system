@@ -183,33 +183,38 @@ export default function Components() {
         <Demo
           title="Logo"
           code="<Logo variant='mark' size={48} />"
-          notes="The square mark is the canonical brand glyph — used in the floating nav and as the favicon. The wordmark adds the full Resonant studios.com.au lock-up. Both auto-swap between black-on-light and white-on-dark via the active theme. Force a tone with the `tone` prop only when the surface colour is fixed regardless of theme."
+          notes="App icon — speaker mesh with wood trim. The square is the canonical brand glyph: floating nav, favicon, social avatar. It's self-contained (its own dark body + wood trim + white R) so it sits cleanly on both light and dark surfaces without a theme swap. Wordmark is being replaced — new rectangle lock-up coming."
         >
-          {/* Mark — primary, big, hero-of-the-demo */}
+          {/* Mark — three sizes, all the same self-sufficient asset */}
           <Cluster space={6} align="center" justify="center">
             <Logo variant="mark" size={72} href="#" />
             <Logo variant="mark" size={48} href="#" />
             <Logo variant="mark" size={32} href="#" />
           </Cluster>
 
-          {/* Wordmark — secondary, shown smaller for reference */}
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "var(--s-4)", paddingTop: "var(--s-4)", borderTop: "1px solid var(--rule)" }}>
-            <Logo variant="wordmark" size={28} href="#" />
-          </div>
-
-          {/* Forced tones — surfaces that don't follow theme.
-              Tokens (not hex) are used so the styleguide consumes its own
-              contract: light surface = --linen-100, dark surface = --slate-800. */}
-          <Cluster space={4} align="center" justify="center" style={{ marginTop: "var(--s-4)" }}>
+          {/* Surface check — same icon on a light surface and a dark surface, proving it works on both. */}
+          <Cluster space={4} align="center" justify="center" style={{ marginTop: "var(--s-5)", paddingTop: "var(--s-5)", borderTop: "1px solid var(--rule)" }}>
             <div style={{ background: "var(--linen-100)", padding: "var(--s-4) var(--s-5)", borderRadius: "var(--r-3)", display: "inline-flex", alignItems: "center", gap: 12 }}>
-              <Logo variant="mark" tone="light" size={32} href="#" />
-              <span style={{ fontSize: 11, color: "rgba(var(--ink-on-light-rgb), 0.66)", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>tone=&quot;light&quot;</span>
+              <Logo variant="mark" size={40} href="#" />
+              <span style={{ fontSize: 11, color: "rgba(var(--ink-on-light-rgb), 0.66)", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>On light</span>
             </div>
             <div style={{ background: "var(--slate-800)", padding: "var(--s-4) var(--s-5)", borderRadius: "var(--r-3)", display: "inline-flex", alignItems: "center", gap: 12 }}>
-              <Logo variant="mark" tone="dark" size={32} href="#" />
-              <span style={{ fontSize: 11, color: "rgba(var(--ink-on-dark-rgb), 0.66)", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>tone=&quot;dark&quot;</span>
+              <Logo variant="mark" size={40} href="#" />
+              <span style={{ fontSize: 11, color: "rgba(var(--ink-on-dark-rgb), 0.66)", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" }}>On dark</span>
             </div>
           </Cluster>
+
+          {/* Wordmark — rectangle speaker-mesh lock-up. Same self-sufficient asset, just wider. */}
+          <div style={{ marginTop: "var(--s-5)", paddingTop: "var(--s-5)", borderTop: "1px solid var(--rule)" }}>
+            <div style={{ fontSize: 11, color: "var(--ink-soft)", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "var(--s-3)", textAlign: "center" }}>
+              Wordmark
+            </div>
+            <Cluster space={5} align="center" justify="center">
+              <Logo variant="wordmark" size={80} href="#" />
+              <Logo variant="wordmark" size={56} href="#" />
+              <Logo variant="wordmark" size={36} href="#" />
+            </Cluster>
+          </div>
         </Demo>
 
         <Demo

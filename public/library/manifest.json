@@ -273,40 +273,13 @@
       "notes": "Strong editorial mood shot. Use for blog / story / pull-quote backdrops."
     },
     {
-      "filename": "logos/wordmark-on-dark.png",
-      "title": "Wordmark — for dark surfaces",
+      "filename": "logos/wordmark--speaker-mesh.png",
+      "title": "Wordmark — speaker mesh with wood trim",
       "category": "logos",
-      "tags": ["wordmark", "white", "dark-mode"],
-      "alt": "Resonant Studios wordmark in white, with the eighth-note R glyph and 'studios.com.au' subtitle.",
+      "tags": ["wordmark", "skeuomorphic", "speaker-grille", "wood-trim", "white-letter", "rectangle", "transparent-bg"],
+      "alt": "Rectangle wordmark — the Resonant R glyph followed by 'studios.com.au' in white, set into a dark speaker-grille panel inside a warm wooden frame.",
       "source": "Tony's brand asset library",
-      "notes": "Use on dark surfaces (--bg in dark mode). The canonical wordmark."
-    },
-    {
-      "filename": "logos/wordmark-on-light.png",
-      "title": "Wordmark — for light surfaces",
-      "category": "logos",
-      "tags": ["wordmark", "black", "light-mode"],
-      "alt": "Resonant Studios wordmark in black, with the eighth-note R glyph and 'studios.com.au' subtitle.",
-      "source": "Tony's brand asset library",
-      "notes": "Use on light surfaces (--bg in light mode)."
-    },
-    {
-      "filename": "logos/mark-on-dark.png",
-      "title": "Mark — for dark surfaces",
-      "category": "logos",
-      "tags": ["mark", "icon", "white", "dark-mode"],
-      "alt": "Resonant Studios mark — a stylised eighth-note R glyph, in white.",
-      "source": "Tony's brand asset library",
-      "notes": "Use as favicon, app icon, social avatar. Never under 32px."
-    },
-    {
-      "filename": "logos/mark-on-light.png",
-      "title": "Mark — for light surfaces",
-      "category": "logos",
-      "tags": ["mark", "icon", "black", "light-mode"],
-      "alt": "Resonant Studios mark — a stylised eighth-note R glyph, in black.",
-      "source": "Tony's brand asset library",
-      "notes": "Use as favicon, app icon, social avatar. Never under 32px."
+      "notes": "Canonical wordmark. Self-contained — works on light and dark surfaces with one file. Rectangle ~3:2 aspect; scales by height."
     },
     {
       "filename": "logos/app-icon--white.png",
